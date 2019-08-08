@@ -1,0 +1,27 @@
+syntax = "proto3";
+import "header.proto";
+package com.lobby;
+
+option java_package = "com.slots.basics.core.protoc.protomsg"; //java  语言包
+option java_outer_classname = "LobbyProto";
+option java_multiple_files = true; //是否生产java多个类
+
+
+//服务器 返回前端的 header
+message LoginRequest {
+   com.slots.GameRequestHeader header = 1;
+   string phone = 2;
+   string password =3;
+
+}
+
+//请求服务器
+message LoginResponse {
+   com.slots.GameResponseHeader header=1;
+   string phone = 2;
+   string password =3;
+   int32 coin =4;
+   
+}
+
+

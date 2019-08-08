@@ -1,0 +1,67 @@
+//========SK=====实例=整理=2019-08-07============================
+// proto3 如果不指定 则默认 proto2
+syntax = "proto3";
+
+import "header.proto"; // 引入 其他配置文件
+
+//为了防止不同消息之间的命名冲突，你可以对特定的.proto文件提指定 package 名字。在定义消息的成员的时候，可以指定包的名字：
+package com.slots;
+
+option csharp_namespace = "Google.Protobuf.WellKnownTypes"; // c#语言 包路径
+option cc_enable_arenas = true; //c++ 相关
+option go_package = "github.com/golang/protobuf/ptypes/struct;structpb"; //go 语言包
+option java_package = "com.slots.basics.core.protoc.protomsg"; //java  语言包
+option java_outer_classname = "StructProto";
+option java_multiple_files = true; //是否生产java多个类
+option objc_class_prefix = "GPB"; //指定Objective-C类前缀
+
+// Tag的取值范围最小是1，最大是2的29次方  但 19000~19999 是 protobuf 预留的，用户不能使用。
+// 使用频率高的变量最好设置为1 ~ 15，这样可以减少编码后的数据大小，
+// 但由于Tag一旦指定不能修改，所以为了以后扩展，也记得为未来保留一些 1 ~ 15 的 Tag
+
+message Struct {
+  // Unordered map of dynamically typed values.
+  map<string, Value> fields = 1;
+}
+
+// `Value` represents a dynamically typed value which can be either
+// null, a number, a string, a boolean, a recursive struct value, or a
+// list of values. A producer of value is expected to set one of that
+// variants, absence of any variant indicates an error.
+//
+// The JSON representation for `Value` is JSON value.
+message Value {
+  // Oneof 类似union，如果你的消息中有很多可选字段，而同一个时刻最多仅有其中的一个字段被设置的话，你可以使用oneof来强化这个特性并且节约存储空间，如
+  oneof kind {
+    // Represents a null value.
+    NullValue null_value = 1;
+    // Represents a double value.
+    double number_value = 2;
+    // Represents a string value.
+    string string_value = 3;
+    // Represents a boolean value.
+    bool bool_value = 4;
+    // Represents a structured value.
+    Struct struct_value = 5;
+    // Represents a repeated `Value`.
+    ListValue list_value = 6;
+  }
+  //这样，null_value 和 number_value 都是 Value 的成员，但不能给他们同时设置值（设置一个oneof字段会自动清理其他的oneof字段）。
+}
+
+// `NullValue` is a singleton enumeration to represent the null value for the
+// `Value` type union.
+//
+//  The JSON representation for `NullValue` is JSON `null`.
+enum NullValue {
+  // Null value.
+  NULL_VALUE = 0;
+}
+
+// `ListValue` is a wrapper around a repeated field of values.
+//
+// The JSON representation for `ListValue` is JSON array.
+message ListValue {
+  // Repeated field of dynamically typed values.
+  repeated Value values = 1;
+}

@@ -1,0 +1,47 @@
+option java_package="com.kunda.netty.protocol";
+option java_outer_classname="RHMS";
+
+enum MsgType{
+	 M_LoginRequest  = 10001;
+	 M_LoginResponse  = 10002;
+	 M_LogoutRequest  = 10003;
+	 M_LogoutResponse  = 10004;
+	 M_KeepaliveRequest = 10005;
+	 M_KeepaliveResponse = 10006;
+	 M_GetFriendsRequest = 10007;
+	 M_GetFriendsResponse = 10008;
+	 M_SendMessageRequest = 10009;
+	 M_SendMessageResponse = 10010;
+	 
+	 M_Friend_Notification = 20001;
+	 M_Message_Notification = 20002;
+	 M_Welcome_Notification = 20003;
+}
+
+message Header{
+	required bool success=1;
+	optional int32 code=2;
+	optional string message=3;
+}
+
+message LoginRequest{
+	required string account=1;
+	optional string passwd=2;
+}
+
+message LoginResponse{
+	optional Header header=1;
+	optional string account=2;
+	optional int32 age=3;
+	optional string uid=4;
+}
+
+message LogoutRequest{
+	required string account=1;
+}
+
+message LogoutResponse{
+	optional Header header=1;
+	optional string account=2;
+	optional string uid=3;
+}

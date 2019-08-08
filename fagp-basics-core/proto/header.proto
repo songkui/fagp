@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.slots;
+
+option java_package = "com.slots.basics.core.protoc.protomsg"; //java  语言包
+option java_outer_classname = "Header";
+//option java_multiple_files = true; //是否生产java多个类
+
+
+//服务器 返回前端的 header
+message GameResponseHeader {
+   int32 magic = 1; //魔法字段 无意义
+   int32 cmd = 2; //命令号
+   int32 status_code = 3; //250 表示成功，其他数值表示有错误
+   string  status_msg = 4; // 状态值 成功则是 success 错误则反回错误对应说明
+   int32 version = 5; // 这个是版本号
+}
+
+//请求服务器
+message GameRequestHeader {
+   int32 magic = 1; //魔法字段 无意义
+   int32 cmd = 2; //命令号
+   int32 version = 3; //版本号
+
+}
+
+

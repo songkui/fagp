@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+   <parent>
+        <groupId>com.fagp</groupId>
+        <artifactId>fagp</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+  <groupId>com.fagp</groupId>
+  <artifactId>fagp-game-lobby</artifactId>
+  <version>${slots.version}</version>
+  <packaging>jar</packaging>
+
+  <name>fagp :: basics :: lobby</name>
+  <description>fagp basics lobby</description>
+
+
+    <properties>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <main.dir>${basedir}/..</main.dir>
+         <pkg.name>fagp-lobby</pkg.name>
+
+        <commons.pool.version>2.4.2</commons.pool.version>
+        <druid.ali.version>1.1.9</druid.ali.version>
+    </properties>
+
+    <dependencies>
+        <!-- 依赖 基础 net   -->
+        <dependency>
+            <groupId>com.fagp</groupId>
+            <artifactId>fagp-basics-net</artifactId>
+            <version>${fagp.version}</version>
+        </dependency>
+
+
+        <!-- spring boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <!--netty-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+        </dependency>
+
+        <!-- redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commons.pool.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+ <build>
+        <finalName>${pkg.name}-${project.version}</finalName>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.fagp.game.lobby.LobbyApplication</mainClass>
+                    <classifier>boot</classifier>
+                    <layout>ZIP</layout>
+                    <executable>true</executable>
+                    <excludeDevtools>true</excludeDevtools>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

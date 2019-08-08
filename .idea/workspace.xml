@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cc506351-10d1-4aac-980b-d5e5637c251a" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/fagp-basics-engine/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/fagp-game-lobby/target/" />
+    <ignored path="$PROJECT_DIR$/fagp-basics-net/target/" />
+    <ignored path="$PROJECT_DIR$/fagp-game-fruits/target/" />
+    <ignored path="$PROJECT_DIR$/fagp-basics-core/target/" />
+    <ignored path="$PROJECT_DIR$/fagp-basics-sdp/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-106270007">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="bat" value="1" />
+          <entry key="class" value="1" />
+          <entry key="java" value="32" />
+          <entry key="proto" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="32" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PROTO" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="82" />
+          <entry key="proto" value="33" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="82" />
+          <entry key="PROTO" value="33" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/annotation/RequestHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/config/FruitsServerProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/service/LoginRequestService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/proto/RHMS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>net.proto</find>
+      <find>&quot;com.slots</find>
+      <find>LoginRequest</find>
+    </findStrings>
+    <dirStrings>
+      <dir>E:\FAGP\fingerart</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/config/StartInitialize.java" />
+        <option value="$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/FruitsApplication.java" />
+        <option value="$PROJECT_DIR$/fagp-game-lobby/src/main/java/com/fagp/game/lobby/LobbyApplication.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/proto/ProtoTest.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/SdpApplication.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-core/proto/struct.proto" />
+        <option value="$PROJECT_DIR$/fagp-basics-core/proto/RHMS.proto" />
+        <option value="$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/proto/RHMS.java" />
+        <option value="$PROJECT_DIR$/fagp-game-lobby/src/main/java/com/fagp/game/lobby/service/LoginRequestService.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/test/ProtoTest.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/service/LoginRequestService.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/tcp/RequestDispatcherHandler.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/test/ProtocolClientHandler.java" />
+        <option value="$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/util/MessageUtil.java" />
+        <option value="$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/service/LoginRequestService.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="fagp :: pom" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="fagp :: pom" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-341" />
+    <option name="y" value="10" />
+    <option name="width" value="1520" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-basics-net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-basics-net" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-basics-net" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-basics-net" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-basics-net" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-basics-net" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="annotation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-basics-sdp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-fruits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fruits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fruits" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-lobby" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fagp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fingerart" type="462c0819:PsiDirectoryNode" />
+              <item name="fagp-game-lobby" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565232514090" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\FAGP\fingerart\fagp-basics-net\src\main\java\com\fagp\basics\net\proto" />
+      <recent name="E:\FAGP\fingerart\fagp-basics-core\proto" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.TcpTest">
+    <configuration name="TcpTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fagp.basics.sdp.test.TcpTest" />
+      <module name="fagp-basics-sdp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fagp.basics.sdp.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FruitsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="fagp-game-fruits" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.fagp.game.fruits.FruitsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LobbyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="fagp-game-lobby" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.fagp.game.lobby.LobbyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SdpApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="fagp-basics-sdp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.fagp.basics.sdp.SdpApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.LobbyApplication" />
+      <item itemvalue="Spring Boot.FruitsApplication" />
+      <item itemvalue="Spring Boot.SdpApplication" />
+      <item itemvalue="Application.TcpTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TcpTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc506351-10d1-4aac-980b-d5e5637c251a" name="Default Changelist" comment="" />
+      <created>1565229033260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565229033260</updated>
+      <workItem from="1565229034687" duration="3332000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3332000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16311301" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32899022" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.27795875" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13789359" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.18023887" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven Projects" visible="true" weight="0.14392324" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/util/MessageUtil.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/tcp/RequestDispatcherHandler.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/test/ProtocolClientHandler.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/test/ProtocolClientHandler.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/FruitsApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/config/StartInitialize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-game-lobby/src/main/java/com/fagp/game/lobby/LobbyApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-game-lobby/src/main/java/com/fagp/game/lobby/config/StartInitialize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/proto/ProtoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/config/StartInitialize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/SdpApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/proto/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-core/proto/lobby.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-core/proto/protoToJava.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-core/proto/struct.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-core/proto/RHMS.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-game-lobby/src/main/java/com/fagp/game/lobby/service/LoginRequestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/test/ProtoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-sdp/src/main/java/com/fagp/basics/sdp/service/LoginRequestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.24.Final/netty-transport-4.1.24.Final.jar!/io/netty/channel/AbstractChannelHandlerContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/test/ProtocolClientHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/util/MessageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/tcp/RequestDispatcherHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/annotation/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/config/FruitsServerProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-game-fruits/src/main/java/com/fagp/game/fruits/service/LoginRequestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fagp-basics-net/src/main/java/com/fagp/basics/net/proto/RHMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
