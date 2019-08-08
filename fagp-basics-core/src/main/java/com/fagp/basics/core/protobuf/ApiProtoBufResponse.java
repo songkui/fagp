@@ -57,16 +57,7 @@ public class ApiProtoBufResponse {
          * @return
          */
         public ByteBuf buildByteBuf() {
-            ApiProtoBufResponse apiProtoBufResponse = build();
-            ByteBuf byteBuf = Unpooled.buffer();
-            byteBuf.writeShort(MESSAGE_FLAG);
-            byteBuf.writeInt(apiProtoBufResponse.getCmd()); //命令号
-            byteBuf.writeInt(apiProtoBufResponse.getState());
-
-            byte[] bytes = null == apiProtoBufResponse.data ? new byte[0] : apiProtoBufResponse.data.toByteArray();
-            byteBuf.writeInt(bytes.length); //包长度
-            byteBuf.writeBytes(bytes);
-           return byteBuf;
+            return build().getByteBuf();
         }
 
 
@@ -80,6 +71,18 @@ public class ApiProtoBufResponse {
 
     public static Builder newBuild(){
         return new Builder();
+    }
+
+    public ByteBuf getByteBuf(){
+        ByteBuf byteBuf = Unpooled.buffer();
+        byteBuf.writeShort(MESSAGE_FLAG);
+        byteBuf.writeInt(this.getCmd()); //命令号
+        byteBuf.writeInt(this.getState());
+
+        byte[] bytes = null == this.data ? new byte[0] : this.data.toByteArray();
+        byteBuf.writeInt(bytes.length); //包长度
+        byteBuf.writeBytes(bytes);
+        return byteBuf;
     }
 
 

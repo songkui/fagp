@@ -3,7 +3,7 @@ package com.fagp.basics.net.test;
 import com.fagp.basics.core.enm.HandlerType;
 import com.fagp.basics.core.protobuf.aheader.Header;
 import com.fagp.basics.core.protobuf.lobby.request.LobbyProtoRequest;
-import com.fagp.basics.net.util.MessageUtil;
+import com.fagp.basics.core.util.MessageUtil;
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.Parser;
 import io.netty.buffer.ByteBuf;
@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
-	private ConcurrentHashMap<HandlerType, Parser<?>> parserMap = new ConcurrentHashMap<HandlerType, Parser<?>>();
+	private ConcurrentHashMap<Integer, GeneratedMessageV3> parserMap = new ConcurrentHashMap<>();
 
 
 	@Override
@@ -73,15 +73,15 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 
 		HandlerType type = HandlerType.valueOfCode(msgCode);
 
-		Parser<?> parser = parserMap.get(type);
+		GeneratedMessageV3 parser = parserMap.get(type.code());
 		if(parser == null){
-			parser = MessageUtil.parseMessageParse(type);
-			parserMap.put(type, parser);
+			parser = MessageUtil.parseMessage(type);
+			parserMap.put(type.code(), parser);
 		}
 
 		byte[] bytes = new byte[byteBuf.readableBytes()];
 		byteBuf.readBytes(bytes);
-		GeneratedMessageV3 responseMessage = (GeneratedMessageV3) parser.parseFrom(bytes);
+		GeneratedMessageV3 responseMessage = (GeneratedMessageV3) parser.getParserForType().parseFrom(bytes);
 		
 		return responseMessage;
 	}

@@ -1,6 +1,7 @@
 package com.fagp.basics.net.tcp;
 
 import com.fagp.basics.core.config.NettyProperties;
+import com.fagp.basics.net.handler.GameChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
@@ -21,24 +22,23 @@ import org.springframework.stereotype.Component;
 public class TcpServer {
 
     private Logger logger = LoggerFactory.getLogger(TcpServer.class);
-    private final SocketChannelInitializer socketChannelInitializer;
+    private final GameChannelInitializer gameChannelInitializer;
 
 
     @Autowired
-    public TcpServer( SocketChannelInitializer socketChannelInitializer) {
-        this.socketChannelInitializer = socketChannelInitializer;
+    public TcpServer( GameChannelInitializer gameChannelInitializer) {
+        this.gameChannelInitializer = gameChannelInitializer;
     }
 
     public void start(NettyProperties nettyProperties)throws InterruptedException {
 
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        serverBootstrap.group(new NioEventLoopGroup(nettyProperties.getBossCount()),
-                new NioEventLoopGroup(nettyProperties.getWorkerCount()))
+        serverBootstrap.group(new NioEventLoopGroup(),  new NioEventLoopGroup())
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 1024)
                 .childOption(ChannelOption.SO_REUSEADDR, true) //重用地址
                 .handler(new LoggingHandler(LogLevel.INFO))
-                .childHandler(socketChannelInitializer);
+                .childHandler(gameChannelInitializer);
 
         ChannelFuture channelFuture = serverBootstrap.bind(nettyProperties.getPort()).sync();
         logger.info("netty server is running, port: {}", nettyProperties.getPort());

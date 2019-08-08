@@ -7,7 +7,7 @@ package com.fagp.basics.core.enm;
  **/
 public interface IEnumType {
      //对应值
-    int code();
+     Integer code();
 
     //获取 描述 或者对应名称
     String desc();

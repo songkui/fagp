@@ -4,11 +4,13 @@ import com.fagp.basics.core.annotation.FagpHandlerMapping;
 import com.fagp.basics.core.annotation.Handler;
 import com.fagp.basics.core.enm.HandlerType;
 import com.fagp.basics.core.handler.FagpHandler;
+import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
 import com.fagp.basics.core.protobuf.aheader.Header;
 import com.fagp.basics.core.protobuf.lobby.request.LobbyProtoRequest;
 import com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse;
 import com.google.gson.Gson;
 import com.google.protobuf.GeneratedMessageV3;
+import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +48,8 @@ public class LonginHandler implements FagpHandler{
     }
 
 
-
     @Override
-    public GeneratedMessageV3 handle(GeneratedMessageV3 request) {
-        return null;
+    public void handle(ApiProtoBufRequest request, ChannelHandlerContext ctx) {
+
     }
 }
