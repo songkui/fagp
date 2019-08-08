@@ -1,6 +1,6 @@
 package com.fagp.game.lobby.config;
 
-import com.fagp.basics.net.componentscan.ComponentScan;
+import com.fagp.basics.net.config.InitializeMappingMap;
 import com.fagp.basics.net.tcp.TcpServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -26,7 +26,7 @@ public class StartInitialize {
 
     public void start() throws Exception {
         stringRedisTemplate.opsForValue().set("lobby::prot","9090");
-        new ComponentScan().scan("com/fagp/game/lobby/service");
+        InitializeMappingMap.initializeMapping(); //初始化 数据
         tcpServer.start(fruitsServerProperties.getNettyProperties());
     }
 }

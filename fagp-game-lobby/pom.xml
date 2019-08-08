@@ -14,8 +14,8 @@
   <version>${slots.version}</version>
   <packaging>jar</packaging>
 
-  <name>fagp :: basics :: lobby</name>
-  <description>fagp basics lobby</description>
+  <name>fagp :: game :: lobby</name>
+  <description>fagp game lobby</description>
 
 
     <properties>

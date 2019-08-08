@@ -1,10 +1,11 @@
 package com.fagp.basics.net.test;
 
-import com.google.protobuf.GeneratedMessage;
+import com.fagp.basics.core.enm.HandlerType;
+import com.fagp.basics.core.protobuf.aheader.Header;
+import com.fagp.basics.core.protobuf.lobby.request.LobbyProtoRequest;
+import com.fagp.basics.net.util.MessageUtil;
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.Parser;
-import com.fagp.basics.net.proto.RHMS;
-import com.fagp.basics.net.util.MessageUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -14,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
-	private ConcurrentHashMap<RHMS.MsgType, Parser<?>> parserMap = new ConcurrentHashMap<RHMS.MsgType, Parser<?>>();
+	private ConcurrentHashMap<HandlerType, Parser<?>> parserMap = new ConcurrentHashMap<HandlerType, Parser<?>>();
 
 
 	@Override
@@ -28,12 +29,14 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		ByteBuf message;
 		for(int i=0;i<1;i++){
-			RHMS.LoginRequest request = RHMS.LoginRequest.newBuilder()
-					.setAccount("user001")
-					.setPasswd("123456")
+			int cmd = 11001;
+			LobbyProtoRequest.LoginRequest request = LobbyProtoRequest.LoginRequest.newBuilder()
+					.setHeader(Header.GameRequestHeader.newBuilder().setCmd(cmd).setVersion(1).build())
+					.setMac("Mac address")
+					.setPassword("aa123456")
+					.setPhone("18615780661")
 					.build();
-			//message = Unpooled.copiedBuffer(request.toByteArray());
-			message = genRequestMessage(request);
+			message = genRequestMessage(request, cmd);
 			ctx.writeAndFlush(message);
 			System.out.println("send: "+request);
 		}
@@ -42,17 +45,18 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 	
 	
 	
-	private ByteBuf genRequestMessage(GeneratedMessageV3 msgObj){
-		String clazzName = msgObj.getClass().getName();
-		clazzName = clazzName.substring(clazzName.indexOf("$")+1,clazzName.length());
-		String enumName = "M_"+clazzName;
-		int msgType = RHMS.MsgType.valueOf(enumName).getNumber();
+	private ByteBuf genRequestMessage(GeneratedMessageV3 msgObj, int cmd){
+
+//		String clazzName = msgObj.getClass().getName();
+//		clazzName = clazzName.substring(clazzName.indexOf("$")+1,clazzName.length());
+//		String enumName = "M_"+clazzName;
+//		int msgType = RHMS.MsgType.valueOf(enumName).getNumber();
+//
+//		byte[] msgObjBytes = msgObj.toByteArray();
 		
-		byte[] msgObjBytes = msgObj.toByteArray();
-		
-		ByteBuf message = Unpooled.buffer(msgObjBytes.length+4);
-		message.writeInt(msgType)
-		       .writeBytes(msgObjBytes);
+		ByteBuf message = Unpooled.buffer(msgObj.toByteArray().length+4);
+		message.writeInt(cmd)
+		       .writeBytes(msgObj.toByteArray());
 		
 		return message;
 		
@@ -60,11 +64,12 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 	
 	private GeneratedMessageV3 parserMessage(ByteBuf buf) throws Exception{
 		int msgCode = buf.readInt();
-		RHMS.MsgType msgType = RHMS.MsgType.valueOf(msgCode);
-		Parser<?> parser = parserMap.get(msgType);
+		HandlerType type = HandlerType.valueOfCode(msgCode);
+
+		Parser<?> parser = parserMap.get(type);
 		if(parser == null){
-			parser = MessageUtil.parseMessageParse(msgType);
-			parserMap.put(msgType, parser);
+			parser = MessageUtil.parseMessageParse(type);
+			parserMap.put(type, parser);
 		}
 		byte[] protobufBytes = new byte[buf.readableBytes()];
 		buf.readBytes(protobufBytes);

@@ -1,10 +1,10 @@
 package com.fagp.basics.sdp.config;
 
+import com.fagp.basics.net.config.InitializeMappingMap;
+import com.fagp.basics.net.tcp.TcpServer;
 import com.fagp.basics.sdp.model.UserDomain;
 import com.fagp.basics.sdp.service.user.UserService;
 import com.github.pagehelper.PageInfo;
-import com.fagp.basics.net.componentscan.ComponentScan;
-import com.fagp.basics.net.tcp.TcpServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,9 +27,10 @@ public class StartInitialize {
     }
 
     public void start() throws Exception{
+        //初始化 redis
         PageInfo<UserDomain> pageInfo = userService.findAllUser(0, 10);
         pageInfo.getList().stream().forEach(u ->System.out.println(u.getPhone()));
-        new ComponentScan().scan("com/fagp/basics/sdp/service");
+        InitializeMappingMap.initializeMapping(); //初始化 数据
         tcpServer.start(sdpServerProperties.getNettyProperties());
     }
 }

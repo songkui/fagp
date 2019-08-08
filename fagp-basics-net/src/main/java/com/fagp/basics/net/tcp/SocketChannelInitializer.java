@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @author carzy
- * @date 2018/08/27
- * <p>
+ *King.Song
  * netty处理器初始化
  */
 @Component

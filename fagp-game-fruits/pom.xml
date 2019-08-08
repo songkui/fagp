@@ -14,8 +14,8 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>fagp :: basics :: fruits</name>
-  <description>fagp basics fruits</description>
+  <name>fagp :: game :: fruits</name>
+  <description>fagp game fruits</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

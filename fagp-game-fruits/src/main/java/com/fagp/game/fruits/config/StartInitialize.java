@@ -1,6 +1,6 @@
 package com.fagp.game.fruits.config;
 
-import com.fagp.basics.net.componentscan.ComponentScan;
+import com.fagp.basics.net.config.InitializeMappingMap;
 import com.fagp.basics.net.tcp.TcpServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -25,7 +25,7 @@ public class StartInitialize {
     }
 
     public void start() throws Exception {
-        new ComponentScan().scan("com/fagp/game/fruits/service");
+        InitializeMappingMap.initializeMapping(); //初始化 数据
         stringRedisTemplate.opsForValue().set("fruits:porto","8080");
         tcpServer.start(fruitsServerProperties.getNettyProperties());
     }
