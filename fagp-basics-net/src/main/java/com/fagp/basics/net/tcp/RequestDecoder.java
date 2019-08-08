@@ -1,14 +1,12 @@
 package com.fagp.basics.net.tcp;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToMessageDecoder;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
-import java.util.List;
+public class RequestDecoder extends LengthFieldBasedFrameDecoder {
 
-public class RequestDecoder extends MessageToMessageDecoder<ByteBuf> {
-    @Override
-    protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
-
+    public RequestDecoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength) {
+        super(maxFrameLength, lengthFieldOffset, lengthFieldLength);
     }
+
+
 }

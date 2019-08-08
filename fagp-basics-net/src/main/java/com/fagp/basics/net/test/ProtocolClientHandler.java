@@ -62,8 +62,15 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 		
 	}
 	
-	private GeneratedMessageV3 parserMessage(ByteBuf buf) throws Exception{
-		int msgCode = buf.readInt();
+	private GeneratedMessageV3 parserMessage(ByteBuf byteBuf) throws Exception{
+
+		System.out.println(byteBuf.readShort() );
+		int msgCode = byteBuf.readInt();
+		System.out.println(msgCode );
+		System.out.println(byteBuf.readInt() );
+		System.out.println(byteBuf.readInt() );
+
+
 		HandlerType type = HandlerType.valueOfCode(msgCode);
 
 		Parser<?> parser = parserMap.get(type);
@@ -71,9 +78,10 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 			parser = MessageUtil.parseMessageParse(type);
 			parserMap.put(type, parser);
 		}
-		byte[] protobufBytes = new byte[buf.readableBytes()];
-		buf.readBytes(protobufBytes);
-		GeneratedMessageV3 responseMessage = (GeneratedMessageV3) parser.parseFrom(protobufBytes);
+
+		byte[] bytes = new byte[byteBuf.readableBytes()];
+		byteBuf.readBytes(bytes);
+		GeneratedMessageV3 responseMessage = (GeneratedMessageV3) parser.parseFrom(bytes);
 		
 		return responseMessage;
 	}
