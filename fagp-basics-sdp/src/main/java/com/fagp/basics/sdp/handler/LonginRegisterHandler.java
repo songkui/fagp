@@ -2,8 +2,10 @@ package com.fagp.basics.sdp.handler;
 
 import com.fagp.basics.core.annotation.GameHandlerMapping;
 import com.fagp.basics.core.annotation.Handler;
+import com.fagp.basics.core.annotation.SdpHandlerMapping;
 import com.fagp.basics.core.enm.HandlerType;
 import com.fagp.basics.core.enm.ResponseCode;
+import com.fagp.basics.core.enm.SdpHandlerType;
 import com.fagp.basics.core.handler.FagpHandler;
 import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
 import com.fagp.basics.core.protobuf.ApiProtoBufResponse;
@@ -30,8 +32,8 @@ import java.util.List;
  **/
 @Service
 @Handler
-public class LonginHandler implements FagpHandler{
-    private Logger logger = LoggerFactory.getLogger(LonginHandler.class);
+public class LonginRegisterHandler implements FagpHandler{
+    private Logger logger = LoggerFactory.getLogger(LonginRegisterHandler.class);
 
     @Autowired
     private UserDao userDao;//这里会报错，但是并不会影响
@@ -43,7 +45,7 @@ public class LonginHandler implements FagpHandler{
     private Gson gson;
 
 
-    @GameHandlerMapping(HandlerType.LoginRequest)
+    @SdpHandlerMapping(SdpHandlerType.LoginRegister)
     public void doLogin(ApiProtoBufRequest request, ApiProtoBufResponse response) {
        LobbyProtoRequest.LoginRequest loginRequest = (LobbyProtoRequest.LoginRequest)request.getMessageV3();
 

@@ -1,7 +1,7 @@
 package com.fagp.game.lobby.config;
 
 import com.fagp.basics.net.config.InitializeMappingMap;
-import com.fagp.basics.net.tcp.TcpServer;
+import com.fagp.basics.net.servers.GameServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
@@ -13,20 +13,20 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class StartInitialize {
-    private final TcpServer tcpServer;
+    private final GameServer gameServer;
     private final LobbyServerProperties fruitsServerProperties;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    public StartInitialize(TcpServer tcpServer, LobbyServerProperties fruitsServerProperties){
-        this.tcpServer = tcpServer;
+    public StartInitialize(GameServer gameServer, LobbyServerProperties fruitsServerProperties){
+        this.gameServer = gameServer;
         this.fruitsServerProperties = fruitsServerProperties;
     }
 
     public void start() throws Exception {
         stringRedisTemplate.opsForValue().set("lobby::prot","9090");
         InitializeMappingMap.initializeMapping(); //初始化 数据
-        tcpServer.start(fruitsServerProperties.getNettyProperties());
+        gameServer.start(fruitsServerProperties.getNettyProperties());
     }
 }

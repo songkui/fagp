@@ -1,7 +1,7 @@
 syntax = "proto3";
-import "header.proto";
 package com.lobby;
 
+option csharp_namespace = "sk.WellKnownTypes"; // c#语言 包路径
 option java_package = "com.fagp.basics.core.protobuf.lobby.request"; //java  语言包
 option java_outer_classname = "LobbyProtoRequest";
 //option java_multiple_files = true; //是否生产java多个类
@@ -9,20 +9,18 @@ option java_outer_classname = "LobbyProtoRequest";
 
 //登录 Request header
 message LoginRequest {
-   com.fagp.GameRequestHeader header = 1;
-   string phone = 2;
-   string password =3;
-   string mac = 4;
+   string phone = 1;
+   string password =2;
+   string mac = 3;
 }
 
 
 
 //转账 Request
 message EFTRequest {
-   com.fagp.GameRequestHeader header = 1;
-   string uid = 2;
-   int32 goldNum = 3; //金额
-   int32 tow = 4; //0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
+   string uid = 1;
+   int32 goldNum = 2; //金额
+   int32 tow = 3; //0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
 }
 
 

@@ -1,4 +1,4 @@
-package com.fagp.basics.net.test;
+package com.fagp.basics.net.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

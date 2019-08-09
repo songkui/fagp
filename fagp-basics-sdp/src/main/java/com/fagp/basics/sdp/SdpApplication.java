@@ -28,24 +28,24 @@ public class SdpApplication {
 			e.printStackTrace();
 		}
 	}
-
-	@Bean(name = "contextRefreshed")
-	public ApplicationListener<ContextRefreshedEvent> applicationListener() {
-		return event -> {
-			StartInitialize nettyServer = event.getApplicationContext().getBean(StartInitialize.class);
-			try {
-				nettyServer.start();
-			} catch (Exception e) {
-				e.printStackTrace();
-				logger.error(e.getMessage());
-			}
-		};
-	}
-
-	@Bean
-	public ChannelRepository channelRepository() {
-		return new ChannelRepository();
-	}
+//
+//	@Bean(name = "contextRefreshed")
+//	public ApplicationListener<ContextRefreshedEvent> applicationListener() {
+//		return event -> {
+//			StartInitialize nettyServer = event.getApplicationContext().getBean(StartInitialize.class);
+//			try {
+//				nettyServer.start();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				logger.error(e.getMessage());
+//			}
+//		};
+//	}
+//
+//	@Bean
+//	public ChannelRepository channelRepository() {
+//		return new ChannelRepository();
+//	}
 
 	@Bean
 	public Gson gson() {

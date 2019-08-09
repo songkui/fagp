@@ -1,6 +1,6 @@
 package com.fagp.basics.sdp.test;
 
-import com.fagp.basics.net.test.ProtocolClient;
+import com.fagp.basics.net.client.ProtocolClient;
 
 public class TcpTest {
     public static void main(String[] args) throws Exception{

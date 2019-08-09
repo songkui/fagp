@@ -1,4 +1,4 @@
-package com.fagp.basics.net.test;
+package com.fagp.basics.net.client;
 
 import com.fagp.basics.core.enm.HandlerType;
 import com.fagp.basics.core.protobuf.aheader.Header;
@@ -15,7 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
-	private ConcurrentHashMap<Integer, GeneratedMessageV3> parserMap = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<Integer, Parser> parserMap = new ConcurrentHashMap<>();
+
+	private final static short MESSAGE_FLAG = 0x1425;
 
 
 	@Override
@@ -54,8 +56,9 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 //
 //		byte[] msgObjBytes = msgObj.toByteArray();
 		
-		ByteBuf message = Unpooled.buffer(msgObj.toByteArray().length+4);
-		message.writeInt(cmd)
+		ByteBuf message = Unpooled.buffer(msgObj.toByteArray().length+6);
+		message.writeShort(MESSAGE_FLAG);
+		message.writeInt(cmd).writeInt(msgObj.toByteArray().length)
 		       .writeBytes(msgObj.toByteArray());
 		
 		return message;
@@ -73,7 +76,7 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 
 		HandlerType type = HandlerType.valueOfCode(msgCode);
 
-		GeneratedMessageV3 parser = parserMap.get(type.code());
+		Parser parser = parserMap.get(type.code());
 		if(parser == null){
 			parser = MessageUtil.parseMessage(type);
 			parserMap.put(type.code(), parser);
@@ -81,7 +84,7 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 
 		byte[] bytes = new byte[byteBuf.readableBytes()];
 		byteBuf.readBytes(bytes);
-		GeneratedMessageV3 responseMessage = (GeneratedMessageV3) parser.getParserForType().parseFrom(bytes);
+		GeneratedMessageV3 responseMessage = (GeneratedMessageV3) parser.parseFrom(bytes);
 		
 		return responseMessage;
 	}

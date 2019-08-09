@@ -10,12 +10,10 @@
  */
 package com.fagp.basics.net.coder;
 
-import com.fagp.basics.core.enm.HandlerType;
+import com.fagp.basics.core.enm.SdpHandlerType;
 import com.fagp.basics.core.exception.FagpException;
 import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
-import com.fagp.basics.core.util.MessageUtil;
-import com.google.protobuf.GeneratedMessageV3;
-import com.google.protobuf.Parser;
+import com.fagp.basics.core.protobuf.sdp.SdpProtocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
@@ -25,8 +23,6 @@ import org.slf4j.LoggerFactory;
 
 import java.nio.charset.Charset;
 import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *
@@ -35,9 +31,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author King.Song
  * @date 2019/8/9 00:05
  */
-public class GameMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
+public class SdpMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
 
-  private Logger logger = LoggerFactory.getLogger(GameMessageDecoder.class);
+  private Logger logger = LoggerFactory.getLogger(SdpMessageDecoder.class);
 
 /** *
  * short MESSAGE_FLAG = 0x1425; //消息分割符号 pb length short 2， int 4
@@ -48,13 +44,17 @@ public class GameMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
   */
   private static final int HEADER_SIZE = 6;
 
-  private ConcurrentHashMap<Integer, Parser<GeneratedMessageV3>> parserMap = new ConcurrentHashMap<>();
-
   private final Charset charset;
 
-  public GameMessageDecoder() {
+  public SdpMessageDecoder() {
     this.charset = CharsetUtil.UTF_8;
   }
+
+  //-------传输格式---------
+  // 第一位分隔符 short 2位
+  //第二位 cmd int
+  // 第三位 包长度 int
+  // 第四位  携带的数据
 
   @Override
   protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
@@ -71,7 +71,6 @@ public class GameMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
     int cmd = in.readInt(); // 命令ID
     int pbLength = in.readInt(); // 包长
 
-
     if (in.readableBytes() < pbLength) {
       logger.error("*******服务器接收请求包信息有误：FLAG：", MESSAGE_FLAG, "cmd:", "包长：", pbLength );
        throw new FagpException("body获取长度" + pbLength + ",实际长度没有达到");
@@ -82,19 +81,15 @@ public class GameMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
     byte[] bodyByte = new byte[buf.readableBytes()];
     buf.readBytes(bodyByte);
 
-    HandlerType msgType = HandlerType.valueOfCode(cmd);
+    SdpHandlerType msgType = SdpHandlerType.valueOfCode(cmd);
     if (null == msgType){
         logger.error("*******映射HandlerType未配置：FLAG：", MESSAGE_FLAG, "cmd:", "包长：", pbLength );
         throw new FagpException("映射HandlerType未配置，cmd："+cmd);
     }
-    Parser<GeneratedMessageV3> parserV3 = parserMap.get(msgType.code());
-    if(parserV3 == null){
-      parserV3 = MessageUtil.parseMessage(msgType);
-      Optional.ofNullable(parserV3).ifPresent(mv3 ->  parserMap.put(msgType.code(), mv3) );
-    }
-    GeneratedMessageV3 messageV3 = parserV3.parseFrom(bodyByte);
-    logger.info("请求参数 "+ messageV3.toString());
-    out.add(ApiProtoBufRequest.newBuild().cmd(cmd).pbLength(pbLength).data(messageV3).type(msgType).build());
+
+    SdpProtocol.SdpProtoBuf msg = SdpProtocol.SdpProtoBuf.parseFrom(bodyByte);
+    logger.info("请求参数 "+ msg.toString());
+    out.add(ApiProtoBufRequest.newBuild().cmd(cmd).pbLength(pbLength).data(msg).sdpType(msgType).build());
 
   }
 

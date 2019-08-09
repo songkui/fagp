@@ -2,7 +2,7 @@ package com.fagp.basics.core.handler;
 
 
 import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
-import io.netty.channel.ChannelHandlerContext;
+import com.fagp.basics.core.protobuf.ApiProtoBufResponse;
 
 /**
  * @Description: Handler 接口，所有处理都必须 实现该接口
@@ -13,5 +13,5 @@ public interface FagpHandler {
 
 
     //所有接口 都必须这种样式操作
-      void handle(ApiProtoBufRequest request, ChannelHandlerContext ctx);
+      void handle(ApiProtoBufRequest request, ApiProtoBufResponse response);
 }

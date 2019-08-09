@@ -1,1 +1,1 @@
-protoc --java_out=./ ./lobby.proto
+protoc --csharp_out=./ ./lobbyResponse.proto

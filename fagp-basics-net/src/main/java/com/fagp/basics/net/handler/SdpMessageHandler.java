@@ -11,6 +11,7 @@
 package com.fagp.basics.net.handler;
 
 import com.fagp.basics.core.config.HandlerMappingInfo;
+import com.fagp.basics.core.config.SdpHandlerMappingInfo;
 import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
 import com.fagp.basics.core.protobuf.ApiProtoBufResponse;
 import com.fagp.basics.net.config.InitializeMappingMap;
@@ -31,9 +32,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope("prototype")
-public class GameMessageHandler extends SimpleChannelInboundHandler<ApiProtoBufRequest> {
+public class SdpMessageHandler extends SimpleChannelInboundHandler<ApiProtoBufRequest> {
 
-  private Logger logger = LoggerFactory.getLogger(GameMessageHandler.class);
+  private Logger logger = LoggerFactory.getLogger(SdpMessageHandler.class);
 
   @Autowired
   private NetworkListener listener;
@@ -44,8 +45,8 @@ public class GameMessageHandler extends SimpleChannelInboundHandler<ApiProtoBufR
       return;
     }
     try {
-      HandlerMappingInfo handlerMappingInfo = InitializeMappingMap.getMapping(msg.getHandlerType().code());
-      ApiProtoBufResponse response = ApiProtoBufResponse.newResponse().buildHandlerType(msg.getHandlerType()).buildContext(ctx);
+      SdpHandlerMappingInfo handlerMappingInfo = InitializeMappingMap.getSdpMapping(msg.getSdpHandlerType().code());
+      ApiProtoBufResponse response = ApiProtoBufResponse.newResponse().buildSdpHandlerType(msg.getSdpHandlerType()).buildContext(ctx);
       handlerMappingInfo.getMethod().invoke(handlerMappingInfo.getHandler(), msg, response);
     } catch (Exception e) {
       logger.error("************请求获取 mappingInfo 异常", e.getMessage(), " ,  CMD：", msg.getCmd());
@@ -56,19 +57,16 @@ public class GameMessageHandler extends SimpleChannelInboundHandler<ApiProtoBufR
 
   @Override
   public void channelActive(ChannelHandlerContext ctx) {
-    System.out.println("=======connect==============");
 //    listener.onConnected(ctx);
   }
 
   @Override
   public void channelInactive(ChannelHandlerContext ctx) {
 //    listener.onDisconnected(ctx);
-    System.out.println("=======channelInactive==============");
   }
 
   @Override
   public void exceptionCaught(ChannelHandlerContext ctx, Throwable throwable) {
 //    listener.onExceptionCaught(ctx, throwable);
-    System.out.println("=======exceptionCaught==============");
   }
 }

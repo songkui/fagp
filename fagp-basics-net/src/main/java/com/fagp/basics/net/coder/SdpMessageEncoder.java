@@ -23,18 +23,22 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * @author King.Song
  * @date 2019/8/9 1:20
  */
-public class GameMessageEncoder extends MessageToByteEncoder<ApiProtoBufResponse> {
+public class SdpMessageEncoder extends MessageToByteEncoder<ApiProtoBufResponse> {
 
   @Override
   protected void encode(ChannelHandlerContext ctx, ApiProtoBufResponse response, ByteBuf out) throws FagpException {
     if (null == response) {
       throw new FagpException("msg is null");
     }
+    //-------传输格式---------
+    // 第一位分隔符 short 2位
+    //第二位 cmd int
+    // 第三位 包长度 int
+    // 第四位  携带的数据
+
     //    //这个得到 btype；
     out.writeShort(response.MESSAGE_FLAG);
     out.writeInt(response.getCmd()); //命令号
-    out.writeInt(response.getState()); //状态号
-
     byte[] bytes = null == response.getData() ? new byte[0] : response.getData().toByteArray();
     out.writeInt(bytes.length); //包长度
     out.writeBytes(bytes);

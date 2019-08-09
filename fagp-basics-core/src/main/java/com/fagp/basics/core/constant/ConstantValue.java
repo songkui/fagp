@@ -24,7 +24,7 @@ public class ConstantValue {
   public static final int MESSAGE_LENGTH_FIELD_OFFSET = 0;
   public static final int MESSAGE_LENGTH_FIELD_LENGTH = 4   ;
   public static final int MESSAGE_LENGTH_ADJUSTMENT = 0;
-  public static final int MESSAGE_INITIAL_BYTES_TO_STRIP = 4;
+  public static final int MESSAGE_INITIAL_BYTES_TO_STRIP = 0;
 
   private ConstantValue() {
   }
