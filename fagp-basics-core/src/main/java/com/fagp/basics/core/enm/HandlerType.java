@@ -26,11 +26,11 @@ public enum HandlerType implements IEnumType {
     LoginRequest(11001, LobbyProtoRequest.LoginRequest.class, "登录接口"),
     EFTRequest(11002, LobbyProtoRequest.EFTRequest.class, "资金转账");
 
-    private final int code ;
+    private final Integer code ;
     private final String desc;
     private final Class msgClass;
 
-    private HandlerType(int code, Class c, String desc){
+    private HandlerType(Integer code, Class c, String desc){
         this.code = code;
         this.msgClass = c;
         this.desc = desc;
@@ -41,7 +41,7 @@ public enum HandlerType implements IEnumType {
                                                        .collect(Collectors.toMap(HandlerType::code, rtype -> rtype));
 
     @Override
-    public final int code() {
+    public final Integer code() {
         return this.code;
     }
 

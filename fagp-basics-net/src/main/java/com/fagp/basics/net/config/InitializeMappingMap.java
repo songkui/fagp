@@ -28,8 +28,10 @@ public class InitializeMappingMap {
     private final static ConcurrentHashMap<Integer, HandlerMappingInfo> typToMappint = new ConcurrentHashMap<>();
 
     //
-    public static HandlerMappingInfo getMapping(Integer handlerType){
-
+    public static HandlerMappingInfo getMapping(Integer handlerType) throws Exception {
+        if (typToMappint.isEmpty()){
+            initializeMapping();
+        }
         return typToMappint.get(handlerType);
     }
 
