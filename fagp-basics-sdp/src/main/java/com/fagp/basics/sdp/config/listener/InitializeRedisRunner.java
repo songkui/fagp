@@ -1,8 +1,8 @@
 package com.fagp.basics.sdp.config.listener;//package com.slots.sdp.start;
 
 
-import com.fagp.basics.sdp.model.UserDomain;
-import com.fagp.basics.sdp.service.user.UserService;
+import com.fagp.basics.dc.model.user.UserDomain;
+import com.fagp.basics.dc.service.user.UserService;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

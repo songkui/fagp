@@ -19,44 +19,31 @@ public final class LobbyProtoRequest {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    boolean hasHeader();
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader getHeader();
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder getHeaderOrBuilder();
-
-    /**
-     * <code>string phone = 2;</code>
+     * <code>string phone = 1;</code>
      */
     String getPhone();
     /**
-     * <code>string phone = 2;</code>
+     * <code>string phone = 1;</code>
      */
     com.google.protobuf.ByteString
         getPhoneBytes();
 
     /**
-     * <code>string password = 3;</code>
+     * <code>string password = 2;</code>
      */
     String getPassword();
     /**
-     * <code>string password = 3;</code>
+     * <code>string password = 2;</code>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
 
     /**
-     * <code>string mac = 4;</code>
+     * <code>string mac = 3;</code>
      */
     String getMac();
     /**
-     * <code>string mac = 4;</code>
+     * <code>string mac = 3;</code>
      */
     com.google.protobuf.ByteString
         getMacBytes();
@@ -114,31 +101,18 @@ public final class LobbyProtoRequest {
               done = true;
               break;
             case 10: {
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder subBuilder = null;
-              if (header_ != null) {
-                subBuilder = header_.toBuilder();
-              }
-              header_ = input.readMessage(com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(header_);
-                header_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
               String s = input.readStringRequireUtf8();
 
               phone_ = s;
               break;
             }
-            case 26: {
+            case 18: {
               String s = input.readStringRequireUtf8();
 
               password_ = s;
               break;
             }
-            case 34: {
+            case 26: {
               String s = input.readStringRequireUtf8();
 
               mac_ = s;
@@ -176,31 +150,10 @@ public final class LobbyProtoRequest {
               LoginRequest.class, Builder.class);
     }
 
-    public static final int HEADER_FIELD_NUMBER = 1;
-    private com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader header_;
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    public boolean hasHeader() {
-      return header_ != null;
-    }
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader getHeader() {
-      return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.getDefaultInstance() : header_;
-    }
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder getHeaderOrBuilder() {
-      return getHeader();
-    }
-
-    public static final int PHONE_FIELD_NUMBER = 2;
+    public static final int PHONE_FIELD_NUMBER = 1;
     private volatile Object phone_;
     /**
-     * <code>string phone = 2;</code>
+     * <code>string phone = 1;</code>
      */
     public String getPhone() {
       Object ref = phone_;
@@ -215,7 +168,7 @@ public final class LobbyProtoRequest {
       }
     }
     /**
-     * <code>string phone = 2;</code>
+     * <code>string phone = 1;</code>
      */
     public com.google.protobuf.ByteString
         getPhoneBytes() {
@@ -231,10 +184,10 @@ public final class LobbyProtoRequest {
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 3;
+    public static final int PASSWORD_FIELD_NUMBER = 2;
     private volatile Object password_;
     /**
-     * <code>string password = 3;</code>
+     * <code>string password = 2;</code>
      */
     public String getPassword() {
       Object ref = password_;
@@ -249,7 +202,7 @@ public final class LobbyProtoRequest {
       }
     }
     /**
-     * <code>string password = 3;</code>
+     * <code>string password = 2;</code>
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
@@ -265,10 +218,10 @@ public final class LobbyProtoRequest {
       }
     }
 
-    public static final int MAC_FIELD_NUMBER = 4;
+    public static final int MAC_FIELD_NUMBER = 3;
     private volatile Object mac_;
     /**
-     * <code>string mac = 4;</code>
+     * <code>string mac = 3;</code>
      */
     public String getMac() {
       Object ref = mac_;
@@ -283,7 +236,7 @@ public final class LobbyProtoRequest {
       }
     }
     /**
-     * <code>string mac = 4;</code>
+     * <code>string mac = 3;</code>
      */
     public com.google.protobuf.ByteString
         getMacBytes() {
@@ -313,17 +266,14 @@ public final class LobbyProtoRequest {
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (header_ != null) {
-        output.writeMessage(1, getHeader());
-      }
       if (!getPhoneBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, phone_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, phone_);
       }
       if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
       }
       if (!getMacBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, mac_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, mac_);
       }
       unknownFields.writeTo(output);
     }
@@ -334,18 +284,14 @@ public final class LobbyProtoRequest {
       if (size != -1) return size;
 
       size = 0;
-      if (header_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getHeader());
-      }
       if (!getPhoneBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, phone_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, phone_);
       }
       if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
       }
       if (!getMacBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, mac_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, mac_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -362,11 +308,6 @@ public final class LobbyProtoRequest {
       }
       LoginRequest other = (LoginRequest) obj;
 
-      if (hasHeader() != other.hasHeader()) return false;
-      if (hasHeader()) {
-        if (!getHeader()
-            .equals(other.getHeader())) return false;
-      }
       if (!getPhone()
           .equals(other.getPhone())) return false;
       if (!getPassword()
@@ -384,10 +325,6 @@ public final class LobbyProtoRequest {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasHeader()) {
-        hash = (37 * hash) + HEADER_FIELD_NUMBER;
-        hash = (53 * hash) + getHeader().hashCode();
-      }
       hash = (37 * hash) + PHONE_FIELD_NUMBER;
       hash = (53 * hash) + getPhone().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
@@ -531,12 +468,6 @@ public final class LobbyProtoRequest {
       @Override
       public Builder clear() {
         super.clear();
-        if (headerBuilder_ == null) {
-          header_ = null;
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
         phone_ = "";
 
         password_ = "";
@@ -569,11 +500,6 @@ public final class LobbyProtoRequest {
       @Override
       public LoginRequest buildPartial() {
         LoginRequest result = new LoginRequest(this);
-        if (headerBuilder_ == null) {
-          result.header_ = header_;
-        } else {
-          result.header_ = headerBuilder_.build();
-        }
         result.phone_ = phone_;
         result.password_ = password_;
         result.mac_ = mac_;
@@ -625,9 +551,6 @@ public final class LobbyProtoRequest {
 
       public Builder mergeFrom(LoginRequest other) {
         if (other == LoginRequest.getDefaultInstance()) return this;
-        if (other.hasHeader()) {
-          mergeHeader(other.getHeader());
-        }
         if (!other.getPhone().isEmpty()) {
           phone_ = other.phone_;
           onChanged();
@@ -669,126 +592,9 @@ public final class LobbyProtoRequest {
         return this;
       }
 
-      private com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader header_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder> headerBuilder_;
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public boolean hasHeader() {
-        return headerBuilder_ != null || header_ != null;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader getHeader() {
-        if (headerBuilder_ == null) {
-          return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.getDefaultInstance() : header_;
-        } else {
-          return headerBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder setHeader(com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader value) {
-        if (headerBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          header_ = value;
-          onChanged();
-        } else {
-          headerBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder setHeader(
-          com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder builderForValue) {
-        if (headerBuilder_ == null) {
-          header_ = builderForValue.build();
-          onChanged();
-        } else {
-          headerBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder mergeHeader(com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader value) {
-        if (headerBuilder_ == null) {
-          if (header_ != null) {
-            header_ =
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
-          } else {
-            header_ = value;
-          }
-          onChanged();
-        } else {
-          headerBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder clearHeader() {
-        if (headerBuilder_ == null) {
-          header_ = null;
-          onChanged();
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder getHeaderBuilder() {
-        
-        onChanged();
-        return getHeaderFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder getHeaderOrBuilder() {
-        if (headerBuilder_ != null) {
-          return headerBuilder_.getMessageOrBuilder();
-        } else {
-          return header_ == null ?
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.getDefaultInstance() : header_;
-        }
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder> 
-          getHeaderFieldBuilder() {
-        if (headerBuilder_ == null) {
-          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder>(
-                  getHeader(),
-                  getParentForChildren(),
-                  isClean());
-          header_ = null;
-        }
-        return headerBuilder_;
-      }
-
       private Object phone_ = "";
       /**
-       * <code>string phone = 2;</code>
+       * <code>string phone = 1;</code>
        */
       public String getPhone() {
         Object ref = phone_;
@@ -803,7 +609,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string phone = 2;</code>
+       * <code>string phone = 1;</code>
        */
       public com.google.protobuf.ByteString
           getPhoneBytes() {
@@ -819,7 +625,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string phone = 2;</code>
+       * <code>string phone = 1;</code>
        */
       public Builder setPhone(
           String value) {
@@ -832,7 +638,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string phone = 2;</code>
+       * <code>string phone = 1;</code>
        */
       public Builder clearPhone() {
         
@@ -841,7 +647,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string phone = 2;</code>
+       * <code>string phone = 1;</code>
        */
       public Builder setPhoneBytes(
           com.google.protobuf.ByteString value) {
@@ -857,7 +663,7 @@ public final class LobbyProtoRequest {
 
       private Object password_ = "";
       /**
-       * <code>string password = 3;</code>
+       * <code>string password = 2;</code>
        */
       public String getPassword() {
         Object ref = password_;
@@ -872,7 +678,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>string password = 2;</code>
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -888,7 +694,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>string password = 2;</code>
        */
       public Builder setPassword(
           String value) {
@@ -901,7 +707,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>string password = 2;</code>
        */
       public Builder clearPassword() {
         
@@ -910,7 +716,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>string password = 2;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -926,7 +732,7 @@ public final class LobbyProtoRequest {
 
       private Object mac_ = "";
       /**
-       * <code>string mac = 4;</code>
+       * <code>string mac = 3;</code>
        */
       public String getMac() {
         Object ref = mac_;
@@ -941,7 +747,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string mac = 4;</code>
+       * <code>string mac = 3;</code>
        */
       public com.google.protobuf.ByteString
           getMacBytes() {
@@ -957,7 +763,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string mac = 4;</code>
+       * <code>string mac = 3;</code>
        */
       public Builder setMac(
           String value) {
@@ -970,7 +776,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string mac = 4;</code>
+       * <code>string mac = 3;</code>
        */
       public Builder clearMac() {
         
@@ -979,7 +785,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string mac = 4;</code>
+       * <code>string mac = 3;</code>
        */
       public Builder setMacBytes(
           com.google.protobuf.ByteString value) {
@@ -1050,24 +856,11 @@ public final class LobbyProtoRequest {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    boolean hasHeader();
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader getHeader();
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder getHeaderOrBuilder();
-
-    /**
-     * <code>string uid = 2;</code>
+     * <code>string uid = 1;</code>
      */
     String getUid();
     /**
-     * <code>string uid = 2;</code>
+     * <code>string uid = 1;</code>
      */
     com.google.protobuf.ByteString
         getUidBytes();
@@ -1077,7 +870,7 @@ public final class LobbyProtoRequest {
      *金额
      * </pre>
      *
-     * <code>int32 goldNum = 3;</code>
+     * <code>int32 goldNum = 2;</code>
      */
     int getGoldNum();
 
@@ -1086,7 +879,7 @@ public final class LobbyProtoRequest {
      *0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
      * </pre>
      *
-     * <code>int32 tow = 4;</code>
+     * <code>int32 tow = 3;</code>
      */
     int getTow();
   }
@@ -1141,30 +934,17 @@ public final class LobbyProtoRequest {
               done = true;
               break;
             case 10: {
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder subBuilder = null;
-              if (header_ != null) {
-                subBuilder = header_.toBuilder();
-              }
-              header_ = input.readMessage(com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(header_);
-                header_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
               String s = input.readStringRequireUtf8();
 
               uid_ = s;
               break;
             }
-            case 24: {
+            case 16: {
 
               goldNum_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 24: {
 
               tow_ = input.readInt32();
               break;
@@ -1201,31 +981,10 @@ public final class LobbyProtoRequest {
               EFTRequest.class, Builder.class);
     }
 
-    public static final int HEADER_FIELD_NUMBER = 1;
-    private com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader header_;
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    public boolean hasHeader() {
-      return header_ != null;
-    }
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader getHeader() {
-      return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.getDefaultInstance() : header_;
-    }
-    /**
-     * <code>.com.fagp.GameRequestHeader header = 1;</code>
-     */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder getHeaderOrBuilder() {
-      return getHeader();
-    }
-
-    public static final int UID_FIELD_NUMBER = 2;
+    public static final int UID_FIELD_NUMBER = 1;
     private volatile Object uid_;
     /**
-     * <code>string uid = 2;</code>
+     * <code>string uid = 1;</code>
      */
     public String getUid() {
       Object ref = uid_;
@@ -1240,7 +999,7 @@ public final class LobbyProtoRequest {
       }
     }
     /**
-     * <code>string uid = 2;</code>
+     * <code>string uid = 1;</code>
      */
     public com.google.protobuf.ByteString
         getUidBytes() {
@@ -1256,27 +1015,27 @@ public final class LobbyProtoRequest {
       }
     }
 
-    public static final int GOLDNUM_FIELD_NUMBER = 3;
+    public static final int GOLDNUM_FIELD_NUMBER = 2;
     private int goldNum_;
     /**
      * <pre>
      *金额
      * </pre>
      *
-     * <code>int32 goldNum = 3;</code>
+     * <code>int32 goldNum = 2;</code>
      */
     public int getGoldNum() {
       return goldNum_;
     }
 
-    public static final int TOW_FIELD_NUMBER = 4;
+    public static final int TOW_FIELD_NUMBER = 3;
     private int tow_;
     /**
      * <pre>
      *0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
      * </pre>
      *
-     * <code>int32 tow = 4;</code>
+     * <code>int32 tow = 3;</code>
      */
     public int getTow() {
       return tow_;
@@ -1296,17 +1055,14 @@ public final class LobbyProtoRequest {
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (header_ != null) {
-        output.writeMessage(1, getHeader());
-      }
       if (!getUidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, uid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
       }
       if (goldNum_ != 0) {
-        output.writeInt32(3, goldNum_);
+        output.writeInt32(2, goldNum_);
       }
       if (tow_ != 0) {
-        output.writeInt32(4, tow_);
+        output.writeInt32(3, tow_);
       }
       unknownFields.writeTo(output);
     }
@@ -1317,20 +1073,16 @@ public final class LobbyProtoRequest {
       if (size != -1) return size;
 
       size = 0;
-      if (header_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getHeader());
-      }
       if (!getUidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, uid_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
       }
       if (goldNum_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, goldNum_);
+          .computeInt32Size(2, goldNum_);
       }
       if (tow_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, tow_);
+          .computeInt32Size(3, tow_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1347,11 +1099,6 @@ public final class LobbyProtoRequest {
       }
       EFTRequest other = (EFTRequest) obj;
 
-      if (hasHeader() != other.hasHeader()) return false;
-      if (hasHeader()) {
-        if (!getHeader()
-            .equals(other.getHeader())) return false;
-      }
       if (!getUid()
           .equals(other.getUid())) return false;
       if (getGoldNum()
@@ -1369,10 +1116,6 @@ public final class LobbyProtoRequest {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasHeader()) {
-        hash = (37 * hash) + HEADER_FIELD_NUMBER;
-        hash = (53 * hash) + getHeader().hashCode();
-      }
       hash = (37 * hash) + UID_FIELD_NUMBER;
       hash = (53 * hash) + getUid().hashCode();
       hash = (37 * hash) + GOLDNUM_FIELD_NUMBER;
@@ -1516,12 +1259,6 @@ public final class LobbyProtoRequest {
       @Override
       public Builder clear() {
         super.clear();
-        if (headerBuilder_ == null) {
-          header_ = null;
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
         uid_ = "";
 
         goldNum_ = 0;
@@ -1554,11 +1291,6 @@ public final class LobbyProtoRequest {
       @Override
       public EFTRequest buildPartial() {
         EFTRequest result = new EFTRequest(this);
-        if (headerBuilder_ == null) {
-          result.header_ = header_;
-        } else {
-          result.header_ = headerBuilder_.build();
-        }
         result.uid_ = uid_;
         result.goldNum_ = goldNum_;
         result.tow_ = tow_;
@@ -1610,9 +1342,6 @@ public final class LobbyProtoRequest {
 
       public Builder mergeFrom(EFTRequest other) {
         if (other == EFTRequest.getDefaultInstance()) return this;
-        if (other.hasHeader()) {
-          mergeHeader(other.getHeader());
-        }
         if (!other.getUid().isEmpty()) {
           uid_ = other.uid_;
           onChanged();
@@ -1652,126 +1381,9 @@ public final class LobbyProtoRequest {
         return this;
       }
 
-      private com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader header_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder> headerBuilder_;
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public boolean hasHeader() {
-        return headerBuilder_ != null || header_ != null;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader getHeader() {
-        if (headerBuilder_ == null) {
-          return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.getDefaultInstance() : header_;
-        } else {
-          return headerBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder setHeader(com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader value) {
-        if (headerBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          header_ = value;
-          onChanged();
-        } else {
-          headerBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder setHeader(
-          com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder builderForValue) {
-        if (headerBuilder_ == null) {
-          header_ = builderForValue.build();
-          onChanged();
-        } else {
-          headerBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder mergeHeader(com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader value) {
-        if (headerBuilder_ == null) {
-          if (header_ != null) {
-            header_ =
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
-          } else {
-            header_ = value;
-          }
-          onChanged();
-        } else {
-          headerBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public Builder clearHeader() {
-        if (headerBuilder_ == null) {
-          header_ = null;
-          onChanged();
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder getHeaderBuilder() {
-        
-        onChanged();
-        return getHeaderFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder getHeaderOrBuilder() {
-        if (headerBuilder_ != null) {
-          return headerBuilder_.getMessageOrBuilder();
-        } else {
-          return header_ == null ?
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.getDefaultInstance() : header_;
-        }
-      }
-      /**
-       * <code>.com.fagp.GameRequestHeader header = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder> 
-          getHeaderFieldBuilder() {
-        if (headerBuilder_ == null) {
-          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameRequestHeaderOrBuilder>(
-                  getHeader(),
-                  getParentForChildren(),
-                  isClean());
-          header_ = null;
-        }
-        return headerBuilder_;
-      }
-
       private Object uid_ = "";
       /**
-       * <code>string uid = 2;</code>
+       * <code>string uid = 1;</code>
        */
       public String getUid() {
         Object ref = uid_;
@@ -1786,7 +1398,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string uid = 2;</code>
+       * <code>string uid = 1;</code>
        */
       public com.google.protobuf.ByteString
           getUidBytes() {
@@ -1802,7 +1414,7 @@ public final class LobbyProtoRequest {
         }
       }
       /**
-       * <code>string uid = 2;</code>
+       * <code>string uid = 1;</code>
        */
       public Builder setUid(
           String value) {
@@ -1815,7 +1427,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string uid = 2;</code>
+       * <code>string uid = 1;</code>
        */
       public Builder clearUid() {
         
@@ -1824,7 +1436,7 @@ public final class LobbyProtoRequest {
         return this;
       }
       /**
-       * <code>string uid = 2;</code>
+       * <code>string uid = 1;</code>
        */
       public Builder setUidBytes(
           com.google.protobuf.ByteString value) {
@@ -1844,7 +1456,7 @@ public final class LobbyProtoRequest {
        *金额
        * </pre>
        *
-       * <code>int32 goldNum = 3;</code>
+       * <code>int32 goldNum = 2;</code>
        */
       public int getGoldNum() {
         return goldNum_;
@@ -1854,7 +1466,7 @@ public final class LobbyProtoRequest {
        *金额
        * </pre>
        *
-       * <code>int32 goldNum = 3;</code>
+       * <code>int32 goldNum = 2;</code>
        */
       public Builder setGoldNum(int value) {
         
@@ -1867,7 +1479,7 @@ public final class LobbyProtoRequest {
        *金额
        * </pre>
        *
-       * <code>int32 goldNum = 3;</code>
+       * <code>int32 goldNum = 2;</code>
        */
       public Builder clearGoldNum() {
         
@@ -1882,7 +1494,7 @@ public final class LobbyProtoRequest {
        *0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
        * </pre>
        *
-       * <code>int32 tow = 4;</code>
+       * <code>int32 tow = 3;</code>
        */
       public int getTow() {
         return tow_;
@@ -1892,7 +1504,7 @@ public final class LobbyProtoRequest {
        *0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
        * </pre>
        *
-       * <code>int32 tow = 4;</code>
+       * <code>int32 tow = 3;</code>
        */
       public Builder setTow(int value) {
         
@@ -1905,7 +1517,7 @@ public final class LobbyProtoRequest {
        *0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
        * </pre>
        *
-       * <code>int32 tow = 4;</code>
+       * <code>int32 tow = 3;</code>
        */
       public Builder clearTow() {
         
@@ -1985,34 +1597,30 @@ public final class LobbyProtoRequest {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\022lobbyRequest.proto\022\tcom.lobby\032\014header." +
-      "proto\"i\n\014LoginRequest\022+\n\006header\030\001 \001(\0132\033." +
-      "com.fagp.GameRequestHeader\022\r\n\005phone\030\002 \001(" +
-      "\t\022\020\n\010password\030\003 \001(\t\022\013\n\003mac\030\004 \001(\t\"d\n\nEFTR" +
-      "equest\022+\n\006header\030\001 \001(\0132\033.com.fagp.GameRe" +
-      "questHeader\022\013\n\003uid\030\002 \001(\t\022\017\n\007goldNum\030\003 \001(" +
-      "\005\022\013\n\003tow\030\004 \001(\005B@\n+com.fagp.basics.core.p" +
-      "rotobuf.lobby.requestB\021LobbyProtoRequest" +
-      "b\006proto3"
+      "\n\022lobbyRequest.proto\022\tcom.lobby\"<\n\014Login" +
+      "Request\022\r\n\005phone\030\001 \001(\t\022\020\n\010password\030\002 \001(\t" +
+      "\022\013\n\003mac\030\003 \001(\t\"7\n\nEFTRequest\022\013\n\003uid\030\001 \001(\t" +
+      "\022\017\n\007goldNum\030\002 \001(\005\022\013\n\003tow\030\003 \001(\005BT\n+com.fa" +
+      "gp.basics.core.protobuf.lobby.requestB\021L" +
+      "obbyProtoRequest\252\002\021sk.WellKnownTypesb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.fagp.basics.core.protobuf.aheader.Header.getDescriptor(),
         });
     internal_static_com_lobby_LoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_lobby_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_lobby_LoginRequest_descriptor,
-        new String[] { "Header", "Phone", "Password", "Mac", });
+        new String[] { "Phone", "Password", "Mac", });
     internal_static_com_lobby_EFTRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_lobby_EFTRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_lobby_EFTRequest_descriptor,
-        new String[] { "Header", "Uid", "GoldNum", "Tow", });
-    com.fagp.basics.core.protobuf.aheader.Header.getDescriptor();
+        new String[] { "Uid", "GoldNum", "Tow", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

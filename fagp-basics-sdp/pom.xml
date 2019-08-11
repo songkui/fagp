@@ -39,6 +39,12 @@
 			<version>${fagp.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.fagp</groupId>
+			<artifactId>fagp-basics-dc</artifactId>
+			<version>${fagp.version}</version>
+		</dependency>
+
 		<!-- spring boot -->
 
 		<!--<dependency>

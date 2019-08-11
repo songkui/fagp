@@ -55,4 +55,9 @@ public class LonginRegisterProvider implements FagpHandler{
     public void handle(ApiProtoBufRequest request, ApiProtoBufResponse response) {
 
     }
+
+    public void doTest(String xx){
+//        sfsdfsdfx s
+
+    }
 }

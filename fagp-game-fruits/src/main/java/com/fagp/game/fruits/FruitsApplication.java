@@ -4,6 +4,7 @@
 import com.fagp.game.fruits.config.StartInitialize;
 import com.google.gson.Gson;
 import com.fagp.basics.net.ChannelRepository;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,9 +15,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class}) //不连接 数据库
+//@SpringBootApplication(exclude={DataSourceAutoConfiguration.class}) //不连接 数据库
+@SpringBootApplication
 @EnableScheduling
-@ComponentScan( {"com.fagp.game.fruits","com.fagp.basics.engine", "com.fagp.basics.net"})
+@ComponentScan( {"com.fagp.game.fruits","com.fagp.basics.engine", "com.fagp.basics.net","com.fagp.basics.dc"})
+@MapperScan("com.fagp.basics.dc.dao")
 public class FruitsApplication {
 
 	public static void main(String[] args) {

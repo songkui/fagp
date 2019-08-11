@@ -1,20 +1,22 @@
-package com.fagp.basics.sdp.service.user;
+package com.fagp.basics.dc.service.user;
 
-import com.fagp.basics.sdp.dao.UserDao;
-import com.fagp.basics.sdp.model.UserDomain;
+import com.fagp.basics.dc.dao.user.UserDao;
+import com.fagp.basics.dc.model.user.UserDomain;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Test
  */
-@Service(value = "userService")
+@Service
+@Transactional
 public class UserService {
 
     @Autowired

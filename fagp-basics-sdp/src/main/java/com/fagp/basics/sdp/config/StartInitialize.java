@@ -1,9 +1,9 @@
 package com.fagp.basics.sdp.config;
 
+import com.fagp.basics.dc.model.user.UserDomain;
+import com.fagp.basics.dc.service.user.UserService;
 import com.fagp.basics.net.config.InitializeMappingMap;
 import com.fagp.basics.net.servers.GameServer;
-import com.fagp.basics.sdp.model.UserDomain;
-import com.fagp.basics.sdp.service.user.UserService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @Date: 2019/8/4 10:36
  * @Description:
  */
-//@Component
+@Component
 public class StartInitialize {
     private final GameServer gameServer;
     private final SdpServerProperties sdpServerProperties;

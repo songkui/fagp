@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.lobby;
+
+option csharp_namespace = "sk.WellKnownTypes"; // c#语言 包路径
+option java_package = "com.fagp.basics.core.protobuf.lobby.response"; //java  语言包
+option java_outer_classname = "LobbyProtoResponse";
+//option java_multiple_files = true; //是否生产java多个类
+
+
+
+//登录Response
+message LoginResponse {
+   string uid = 1; //user ID
+   string phone = 2; // dianh
+   int32 money = 3; //user 钱包
+   int32 gcode =4; // 金币
+}
+
+
+//转账 Response
+message EFTResponse {
+   int32 goldNum = 3; // 转账金额
+   int32 tow = 4; //0 表示 从奖池转到 钱包； 1，表示 从钱包转到 奖池
+}
+

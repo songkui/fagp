@@ -1,6 +1,5 @@
 package com.fagp.basics.sdp.handler;
 
-import com.fagp.basics.core.annotation.GameHandlerMapping;
 import com.fagp.basics.core.annotation.Handler;
 import com.fagp.basics.core.annotation.SdpHandlerMapping;
 import com.fagp.basics.core.enm.HandlerType;
@@ -12,8 +11,8 @@ import com.fagp.basics.core.protobuf.ApiProtoBufResponse;
 import com.fagp.basics.core.protobuf.aheader.Header;
 import com.fagp.basics.core.protobuf.lobby.request.LobbyProtoRequest;
 import com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse;
-import com.fagp.basics.sdp.dao.UserDao;
-import com.fagp.basics.sdp.model.UserDomain;
+import com.fagp.basics.dc.dao.user.UserDao;
+import com.fagp.basics.dc.model.user.UserDomain;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
@@ -56,8 +55,8 @@ public class LonginRegisterHandler implements FagpHandler{
         stringRedisTemplate.opsForValue().set("user:2", gson.toJson(result));
         logger.info("==================="+ gson.toJson(result));
 
-       LobbyProtoResponse.LoginResponse responseMsg = LobbyProtoResponse.LoginResponse.newBuilder().setHeader(Header.GameResponseHeader.newBuilder().setCmd(HandlerType.LoginRequest.code()).setVersion(1))
-               .setPhone("18615780661").setVip("xxxxx").build();
+       LobbyProtoResponse.LoginResponse responseMsg = LobbyProtoResponse.LoginResponse.newBuilder()
+               .setPhone("18615780661").setUid("xxxxx").build();
         response.buildState(ResponseCode.Success);
         response.buildData(responseMsg);
         response.sendMessage();

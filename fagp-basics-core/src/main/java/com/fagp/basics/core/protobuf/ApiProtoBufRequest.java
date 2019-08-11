@@ -1,14 +1,7 @@
 package com.fagp.basics.core.protobuf;
 
 import com.fagp.basics.core.enm.HandlerType;
-import com.fagp.basics.core.enm.ResponseCode;
-import com.fagp.basics.core.enm.SdpHandlerType;
-import com.fagp.basics.core.exception.FagpException;
 import com.google.protobuf.GeneratedMessageV3;
-import com.google.protobuf.InvalidProtocolBufferException;
-import com.google.protobuf.Parser;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -26,18 +19,15 @@ public class  ApiProtoBufRequest {
 
     private static final short MESSAGE_FLAG = 0x1425; //消息分割符号 pb length short 2， int 4
     private int cmd; //4
+    private HandlerType handlerType; // 业务需要 不属于pb 传输
     private int pbLength; // 包长度
 
     private GeneratedMessageV3 messageV3;
-
-    private HandlerType handlerType; // 业务需要 不属于pb 传输
-    private SdpHandlerType sdpHandlerType;
 
     public static final class Builder  {
         private int cmd;
         private int pbLength; // 包长度
         private HandlerType handlerType;
-        private SdpHandlerType sdpHandlerType;
         private GeneratedMessageV3 messageV3;
 
         public Builder() { }
@@ -61,13 +51,6 @@ public class  ApiProtoBufRequest {
             this.handlerType = type;
             return this;
         }
-
-        public Builder sdpType(SdpHandlerType type){
-            this.sdpHandlerType = type;
-            return this;
-
-        }
-
         // build
         public ApiProtoBufRequest build()  {
             ApiProtoBufRequest apiProtoBufRequest = new ApiProtoBufRequest();
@@ -75,19 +58,14 @@ public class  ApiProtoBufRequest {
             apiProtoBufRequest.pbLength = this.pbLength;
             apiProtoBufRequest.messageV3 = this.messageV3;
             apiProtoBufRequest.handlerType = this.handlerType;
-            apiProtoBufRequest.sdpHandlerType = this.sdpHandlerType;
             return apiProtoBufRequest;
         }
 
     }
 
-
     public static Builder newBuild(){
         return new Builder();
     }
-
-
-
 
 
 }

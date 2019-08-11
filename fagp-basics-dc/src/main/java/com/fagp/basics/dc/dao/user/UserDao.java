@@ -1,7 +1,8 @@
-package com.fagp.basics.sdp.dao;
+package com.fagp.basics.dc.dao.user;
 
 
-import com.fagp.basics.sdp.model.UserDomain;
+
+import com.fagp.basics.dc.model.user.UserDomain;
 
 import java.util.List;
 

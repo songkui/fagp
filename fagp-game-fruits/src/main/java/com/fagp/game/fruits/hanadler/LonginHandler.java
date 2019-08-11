@@ -40,12 +40,12 @@ public class LonginHandler implements FagpHandler{
     @GameHandlerMapping(HandlerType.LoginRequest)
     public void doLogin(ApiProtoBufRequest request, ApiProtoBufResponse response) {
 
-        LobbyProtoResponse.LoginResponse responseMsg = LobbyProtoResponse.LoginResponse.newBuilder().setHeader(Header.GameResponseHeader.newBuilder().setCmd(HandlerType.LoginRequest.code()).setVersion(1))
-                .setPhone("18615780661").setVip("xxFFFFFFFFFFFFFFFFFFxxx").build();
+        LobbyProtoResponse.LoginResponse responseMsg = LobbyProtoResponse.LoginResponse.newBuilder()
+                .setPhone("18615780661").setUid("xxFFFFFFFFFFFFFFFFFFxxx").build();
         response.buildState(ResponseCode.Success);
         response.buildData(responseMsg);
 
-        new TcpTest().doHttp();
+//        new TcpTest().doHttp();
         response.sendMessage();
 
 

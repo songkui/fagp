@@ -8,6 +8,7 @@
     <modules>
         <module>fagp-basics-core</module>
         <module>fagp-basics-engine</module>
+        <module>fagp-basics-dc</module>
         <module>fagp-basics-net</module>
         <module>fagp-basics-sdp</module>
         <module>fagp-game-fruits</module>

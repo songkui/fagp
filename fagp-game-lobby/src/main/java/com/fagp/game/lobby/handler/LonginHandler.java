@@ -42,8 +42,8 @@ public class LonginHandler implements FagpHandler{
         //将参数传给这个方法就可以实现物理分页了，非常简单。
         stringRedisTemplate.opsForValue().set("user:lobby", "xxxxxxx");
         logger.info("========xxxxxxxxxxxxxxxxxxxxxx===========" );
-        return  LobbyProtoResponse.LoginResponse.newBuilder().setHeader(Header.GameResponseHeader.newBuilder().setCmd(HandlerType.LoginRequest.code()).setVersion(1))
-                .setPhone("18615780661").setVip("xxxxx").build();
+        return  LobbyProtoResponse.LoginResponse.newBuilder()
+                .setPhone("18615780661").setUid("xxxxx").build();
 
     }
 

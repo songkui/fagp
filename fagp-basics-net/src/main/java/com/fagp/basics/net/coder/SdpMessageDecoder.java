@@ -12,7 +12,6 @@ package com.fagp.basics.net.coder;
 
 import com.fagp.basics.core.enm.SdpHandlerType;
 import com.fagp.basics.core.exception.FagpException;
-import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
 import com.fagp.basics.core.protobuf.sdp.SdpProtocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -89,7 +88,7 @@ public class SdpMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
 
     SdpProtocol.SdpProtoBuf msg = SdpProtocol.SdpProtoBuf.parseFrom(bodyByte);
     logger.info("请求参数 "+ msg.toString());
-    out.add(ApiProtoBufRequest.newBuild().cmd(cmd).pbLength(pbLength).data(msg).sdpType(msgType).build());
+//    out.add(ApiProtoBufRequest.newBuild().cmd(cmd).pbLength(pbLength).data(msg).sdpType(msgType).build());
 
   }
 

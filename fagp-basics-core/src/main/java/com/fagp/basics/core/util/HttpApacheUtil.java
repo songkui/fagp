@@ -291,7 +291,7 @@ public class HttpApacheUtil {
         map.put("pageSize", "10");
         Long crtime = System.currentTimeMillis();
         String json = null;
-        for (int i = 0 ; i<1000; i++){
+        for (int i = 0 ; i<10; i++){
 
         try {
             json = request("GET", url, map);//http://127.0.0.1:8080/user/all?pageSize=10&pageNum=0");
