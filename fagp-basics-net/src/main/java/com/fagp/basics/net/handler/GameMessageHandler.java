@@ -1,13 +1,3 @@
-/*
- * Copyright (C), 2015-2018
- * FileName: TcpMessageStringHandler
- * Author:   zhao
- * Date:     2018/6/12 15:01
- * Description: tcp消息处理
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.fagp.basics.net.handler;
 
 import com.fagp.basics.core.config.HandlerMappingInfo;

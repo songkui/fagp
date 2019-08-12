@@ -48,12 +48,7 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 	
 	private ByteBuf genRequestMessage(GeneratedMessageV3 msgObj, int cmd){
 
-//		String clazzName = msgObj.getClass().getName();
-//		clazzName = clazzName.substring(clazzName.indexOf("$")+1,clazzName.length());
-//		String enumName = "M_"+clazzName;
-//		int msgType = RHMS.MsgType.valueOf(enumName).getNumber();
-//
-//		byte[] msgObjBytes = msgObj.toByteArray();
+
 		
 		ByteBuf message = Unpooled.buffer(msgObj.toByteArray().length+6);
 		message.writeShort(MESSAGE_FLAG);
