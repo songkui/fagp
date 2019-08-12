@@ -16,8 +16,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-@ComponentScan( {"com.fagp.basics.sdp", "com.fagp.basics.net"})
-@MapperScan("com.fagp.basics.sdp.dao")
+@ComponentScan( {"com.fagp.basics.sdp", "com.fagp.basics.net","com.fagp.basics.dc"})
+@MapperScan("com.fagp.basics.dc.dao")
 public class SdpApplication {
 
 	private Logger logger = LoggerFactory.getLogger(SdpApplication.class);

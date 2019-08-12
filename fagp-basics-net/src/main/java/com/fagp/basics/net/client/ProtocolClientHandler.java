@@ -33,7 +33,6 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 		for(int i=0;i<1;i++){
 			int cmd = 11001;
 			LobbyProtoRequest.LoginRequest request = LobbyProtoRequest.LoginRequest.newBuilder()
-					.setHeader(Header.GameRequestHeader.newBuilder().setCmd(cmd).setVersion(1).build())
 					.setMac("Mac address")
 					.setPassword("aa123456")
 					.setPhone("18615780661")

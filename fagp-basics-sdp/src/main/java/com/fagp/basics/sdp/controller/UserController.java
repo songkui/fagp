@@ -1,8 +1,9 @@
 package com.fagp.basics.sdp.controller;
 
 
-import com.fagp.basics.sdp.model.UserDomain;
-import com.fagp.basics.sdp.service.user.UserService;
+import com.fagp.basics.dc.model.user.UserDomain;
+import com.fagp.basics.dc.service.game.GameService;
+import com.fagp.basics.dc.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private GameService gameService;
 
     @ResponseBody
     @PostMapping("/add")

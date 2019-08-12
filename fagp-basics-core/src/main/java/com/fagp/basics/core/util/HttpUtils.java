@@ -2,21 +2,14 @@ package com.fagp.basics.core.util;
 
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.ConnectException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * H5微信支付配置
@@ -25,121 +18,178 @@ import java.util.Optional;
  * @since 2017-07-12
  */
 public class HttpUtils {
-    private static Logger logger = LoggerFactory.getLogger(HttpUtils.class);
-    public static final Gson gson = new GsonBuilder()
-            .enableComplexMapKeySerialization()
-            .create();
+    /**
+     * 发送GET请求
+     *
+     * @param url
+     *            目的地址
+     * @param parameters
+     *            请求参数，Map类型。
+     * @return 远程响应结果
+     */
+    public static String sendGet(String url, Map<String, String> parameters) {
+        String result="";
+        BufferedReader in = null;// 读取响应输入流
+        StringBuffer sb = new StringBuffer();// 存储参数
+        String params = "";// 编码之后的参数
+        try {
+            // 编码请求参数
+            if(parameters.size()==1){
+                for(String name:parameters.keySet()){
+                    sb.append(name).append("=").append(
+                            java.net.URLEncoder.encode(parameters.get(name),
+                                    "UTF-8"));
+                }
+                params=sb.toString();
+            }else{
+                for (String name : parameters.keySet()) {
+                    sb.append(name).append("=").append(
+                            java.net.URLEncoder.encode(parameters.get(name),
+                                    "UTF-8")).append("&");
+                }
+                String temp_params = sb.toString();
+                params = temp_params.substring(0, temp_params.length() - 1);
+            }
+            String full_url = url + "?" + params;
+//            System.out.println(full_url);
+            // 创建URL对象
+            java.net.URL connURL = new java.net.URL(full_url);
+            // 打开URL连接
+            java.net.HttpURLConnection httpConn = (java.net.HttpURLConnection) connURL
+                    .openConnection();
+            // 设置通用属性
+            httpConn.setRequestProperty("Accept", "*/*");
+            httpConn.setRequestProperty("Connection", "Keep-Alive");
+            httpConn.setRequestProperty("User-Agent",
+                    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+            // 建立实际的连接
+            httpConn.connect();
+            // 响应头部获取
+            Map<String, List<String>> headers = httpConn.getHeaderFields();
+            // 遍历所有的响应头字段
+//            for (String key : headers.keySet()) {
+//                System.out.println(key + "\t：\t" + headers.get(key));
+//            }
+            // 定义BufferedReader输入流来读取URL的响应,并设置编码方式
+            in = new BufferedReader(new InputStreamReader(httpConn
+                    .getInputStream(), "UTF-8"));
+            String line;
+            // 读取返回的内容
+            while ((line = in.readLine()) != null) {
+                result += line;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result ;
+    }
 
     /**
-     * 发起请求操作
+     * 发送POST请求
      *
-     * @param requestUrl
-     * @param requestMethod
-     * @param data
-     * @return
+     * @param url
+     *            目的地址
+     * @param parameters
+     *            请求参数，Map类型。
+     * @return 远程响应结果
      */
-    public static String httpsRequest(String requestUrl, String requestMethod, String data) {
+    public static String sendPost(String url, Map<String, String> parameters) {
+        String result = "";// 返回的结果
+        BufferedReader in = null;// 读取响应输入流
+        PrintWriter out = null;
+        StringBuffer sb = new StringBuffer();// 处理请求参数
+        String params = "";// 编码之后的参数
         try {
-            URL url = new URL(requestUrl);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            conn.setUseCaches(false);
-
-            // 设置请求方式（GET/POST）
-            conn.setRequestMethod(requestMethod);
-            conn.setRequestProperty("content-type", "application/x-www-form-urlencoded");
-
-            // 当outputStr不为null时向输出流写数据
-            if (null != data) {
-                OutputStream outputStream = conn.getOutputStream();
-                // 注意编码格式
-                outputStream.write(data.getBytes("UTF-8"));
-                outputStream.close();
-            }
-
-            // 从输入流读取返回内容
-            InputStream inputStream = conn.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String str;
-            StringBuffer buffer = new StringBuffer();
-            while ((str = bufferedReader.readLine()) != null) {
-                buffer.append(str);
-            }
-            // 释放资源
-            bufferedReader.close();
-            inputStreamReader.close();
-            inputStream.close();
-            conn.disconnect();
-            return buffer.toString();
-        } catch (ConnectException ex) {
-            logger.error(ex.getMessage());
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
-        return null;
-    }
-
-    public static String httpsRequest(String requestUrl, String requestMethod, Map<String, Object> header, String data) {
-        try {
-            URL url = new URL(requestUrl);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            conn.setUseCaches(false);
-
-            // 设置请求方式（GET/POST）
-            conn.setRequestMethod(requestMethod);
-            conn.setRequestProperty("content-type", "application/json");
-
-            //设置请求头信息
-            if (header != null && !header.isEmpty()) {
-                for (Map.Entry<String, Object> entry : header.entrySet()) {
-                    conn.setRequestProperty(Optional.ofNullable(entry.getKey()).orElse(StringUtils.EMPTY), Optional.ofNullable(entry.getValue()).orElse(StringUtils.EMPTY).toString());
+            // 编码请求参数
+            if (parameters.size() == 1) {
+                for (String name : parameters.keySet()) {
+                    sb.append(name).append("=").append(
+                            java.net.URLEncoder.encode(parameters.get(name),
+                                    "UTF-8"));
                 }
+                params = sb.toString();
+            } else {
+                for (String name : parameters.keySet()) {
+                    sb.append(name).append("=").append(
+                            java.net.URLEncoder.encode(parameters.get(name),
+                                    "UTF-8")).append("&");
+                }
+                String temp_params = sb.toString();
+                params = temp_params.substring(0, temp_params.length() - 1);
             }
-
-            // 当outputStr不为null时向输出流写数据
-            if (null != data) {
-                OutputStream outputStream = conn.getOutputStream();
-                // 注意编码格式
-                outputStream.write(data.getBytes("UTF-8"));
-                outputStream.close();
+            // 创建URL对象
+            java.net.URL connURL = new java.net.URL(url);
+            // 打开URL连接
+            java.net.HttpURLConnection httpConn = (java.net.HttpURLConnection) connURL
+                    .openConnection();
+            // 设置通用属性
+            httpConn.setRequestProperty("Accept", "*/*");
+            httpConn.setRequestProperty("Connection", "Keep-Alive");
+            httpConn.setRequestProperty("User-Agent",
+                    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+            // 设置POST方式
+            httpConn.setDoInput(true);
+            httpConn.setDoOutput(true);
+            // 获取HttpURLConnection对象对应的输出流
+            out = new PrintWriter(httpConn.getOutputStream());
+            // 发送请求参数
+            out.write(params);
+            // flush输出流的缓冲
+            out.flush();
+            // 定义BufferedReader输入流来读取URL的响应，设置编码方式
+            in = new BufferedReader(new InputStreamReader(httpConn
+                    .getInputStream(), "UTF-8"));
+            String line;
+            // 读取返回的内容
+            while ((line = in.readLine()) != null) {
+                result += line;
             }
-
-            // 从输入流读取返回内容
-            InputStream inputStream = conn.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String str;
-            StringBuffer buffer = new StringBuffer();
-            while ((str = bufferedReader.readLine()) != null) {
-                buffer.append(str);
-            }
-            // 释放资源
-            bufferedReader.close();
-            inputStreamReader.close();
-            inputStream.close();
-            conn.disconnect();
-            return buffer.toString();
-        } catch (ConnectException ex) {
-            logger.error(ex.getMessage());
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            e.printStackTrace();
+        } finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
-        return null;
+        return result;
     }
 
-    public static void main(String[] arg){
+    /**
+     * 主函数，测试请求
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
         String url = "http://127.0.0.1:8080/user/all";
         Map<String, String> map = new HashMap<>();
         map.put("pageNum", "0");
         map.put("pageSize", "10");
-       String json = httpsRequest(url, "GET", null,  new Gson().toJson(map));
-       System.out.println(json);
+        String result =sendGet(url, map);
+//        new Gson().fromJson(result, PageInfo.);
+        System.out.println(result);
+
+        Map<String, String> user = new HashMap<>();
+        user.put("gameName", "上的服务而userxxx");
+
+          url = "http://127.0.0.1:8080/game/add";
+
+          result = sendPost(url, user);
+        System.out.println(result);
 
 
     }

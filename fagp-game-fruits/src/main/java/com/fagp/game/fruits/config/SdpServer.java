@@ -3,6 +3,8 @@ package com.fagp.game.fruits.config;
 
 import io.netty.channel.Channel;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @Description: TODO
  * @Author King.Song
@@ -10,14 +12,14 @@ import io.netty.channel.Channel;
  **/
 public class SdpServer {
 
-    private static Channel channel;
+    private static ConcurrentHashMap<String, Channel> channelConcurrentHashMap = new ConcurrentHashMap<>(1);
 
     public static void setChannel(Channel channel){
-        channel = channel;
+        channelConcurrentHashMap.put("test", channel);
     }
 
     public static Channel getChannel(){
-        return channel;
+        return channelConcurrentHashMap.get("test");
     }
 
 

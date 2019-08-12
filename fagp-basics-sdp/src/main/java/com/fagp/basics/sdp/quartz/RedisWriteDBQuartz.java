@@ -1,8 +1,8 @@
 package com.fagp.basics.sdp.quartz;
 
-import com.fagp.basics.sdp.service.user.UserService;
+import com.fagp.basics.dc.model.user.UserDomain;
+import com.fagp.basics.dc.service.user.UserService;
 import com.github.pagehelper.PageInfo;
-import com.fagp.basics.sdp.model.UserDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

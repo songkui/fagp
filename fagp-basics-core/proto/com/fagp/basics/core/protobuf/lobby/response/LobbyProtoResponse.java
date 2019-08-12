@@ -19,37 +19,58 @@ public final class LobbyProtoResponse {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
+     * <pre>
+     *user ID
+     * </pre>
+     *
+     * <code>string uid = 1;</code>
      */
-    boolean hasHeader();
+    java.lang.String getUid();
     /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
+     * <pre>
+     *user ID
+     * </pre>
+     *
+     * <code>string uid = 1;</code>
      */
-    com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader getHeader();
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder getHeaderOrBuilder();
+    com.google.protobuf.ByteString
+        getUidBytes();
 
     /**
+     * <pre>
+     * dianh
+     * </pre>
+     *
      * <code>string phone = 2;</code>
      */
     java.lang.String getPhone();
     /**
+     * <pre>
+     * dianh
+     * </pre>
+     *
      * <code>string phone = 2;</code>
      */
     com.google.protobuf.ByteString
         getPhoneBytes();
 
     /**
-     * <code>string vip = 3;</code>
+     * <pre>
+     *user 钱包
+     * </pre>
+     *
+     * <code>int32 money = 3;</code>
      */
-    java.lang.String getVip();
+    int getMoney();
+
     /**
-     * <code>string vip = 3;</code>
+     * <pre>
+     * 金币
+     * </pre>
+     *
+     * <code>int32 gcode = 4;</code>
      */
-    com.google.protobuf.ByteString
-        getVipBytes();
+    int getGcode();
   }
   /**
    * <pre>
@@ -68,8 +89,8 @@ public final class LobbyProtoResponse {
       super(builder);
     }
     private LoginResponse() {
+      uid_ = "";
       phone_ = "";
-      vip_ = "";
     }
 
     @java.lang.Override
@@ -103,16 +124,9 @@ public final class LobbyProtoResponse {
               done = true;
               break;
             case 10: {
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder subBuilder = null;
-              if (header_ != null) {
-                subBuilder = header_.toBuilder();
-              }
-              header_ = input.readMessage(com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(header_);
-                header_ = subBuilder.buildPartial();
-              }
+              java.lang.String s = input.readStringRequireUtf8();
 
+              uid_ = s;
               break;
             }
             case 18: {
@@ -121,10 +135,14 @@ public final class LobbyProtoResponse {
               phone_ = s;
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 24: {
 
-              vip_ = s;
+              money_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              gcode_ = input.readInt32();
               break;
             }
             default: {
@@ -159,30 +177,55 @@ public final class LobbyProtoResponse {
               com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse.class, com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse.Builder.class);
     }
 
-    public static final int HEADER_FIELD_NUMBER = 1;
-    private com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader header_;
+    public static final int UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uid_;
     /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
+     * <pre>
+     *user ID
+     * </pre>
+     *
+     * <code>string uid = 1;</code>
      */
-    public boolean hasHeader() {
-      return header_ != null;
+    public java.lang.String getUid() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uid_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
+     * <pre>
+     *user ID
+     * </pre>
+     *
+     * <code>string uid = 1;</code>
      */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader getHeader() {
-      return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.getDefaultInstance() : header_;
-    }
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder getHeaderOrBuilder() {
-      return getHeader();
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int PHONE_FIELD_NUMBER = 2;
     private volatile java.lang.Object phone_;
     /**
+     * <pre>
+     * dianh
+     * </pre>
+     *
      * <code>string phone = 2;</code>
      */
     public java.lang.String getPhone() {
@@ -198,6 +241,10 @@ public final class LobbyProtoResponse {
       }
     }
     /**
+     * <pre>
+     * dianh
+     * </pre>
+     *
      * <code>string phone = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -214,38 +261,30 @@ public final class LobbyProtoResponse {
       }
     }
 
-    public static final int VIP_FIELD_NUMBER = 3;
-    private volatile java.lang.Object vip_;
+    public static final int MONEY_FIELD_NUMBER = 3;
+    private int money_;
     /**
-     * <code>string vip = 3;</code>
+     * <pre>
+     *user 钱包
+     * </pre>
+     *
+     * <code>int32 money = 3;</code>
      */
-    public java.lang.String getVip() {
-      java.lang.Object ref = vip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        vip_ = s;
-        return s;
-      }
+    public int getMoney() {
+      return money_;
     }
+
+    public static final int GCODE_FIELD_NUMBER = 4;
+    private int gcode_;
     /**
-     * <code>string vip = 3;</code>
+     * <pre>
+     * 金币
+     * </pre>
+     *
+     * <code>int32 gcode = 4;</code>
      */
-    public com.google.protobuf.ByteString
-        getVipBytes() {
-      java.lang.Object ref = vip_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        vip_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getGcode() {
+      return gcode_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -262,14 +301,17 @@ public final class LobbyProtoResponse {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (header_ != null) {
-        output.writeMessage(1, getHeader());
+      if (!getUidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
       }
       if (!getPhoneBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, phone_);
       }
-      if (!getVipBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, vip_);
+      if (money_ != 0) {
+        output.writeInt32(3, money_);
+      }
+      if (gcode_ != 0) {
+        output.writeInt32(4, gcode_);
       }
       unknownFields.writeTo(output);
     }
@@ -280,15 +322,19 @@ public final class LobbyProtoResponse {
       if (size != -1) return size;
 
       size = 0;
-      if (header_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getHeader());
+      if (!getUidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
       }
       if (!getPhoneBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, phone_);
       }
-      if (!getVipBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, vip_);
+      if (money_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, money_);
+      }
+      if (gcode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, gcode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -305,15 +351,14 @@ public final class LobbyProtoResponse {
       }
       com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse other = (com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse) obj;
 
-      if (hasHeader() != other.hasHeader()) return false;
-      if (hasHeader()) {
-        if (!getHeader()
-            .equals(other.getHeader())) return false;
-      }
+      if (!getUid()
+          .equals(other.getUid())) return false;
       if (!getPhone()
           .equals(other.getPhone())) return false;
-      if (!getVip()
-          .equals(other.getVip())) return false;
+      if (getMoney()
+          != other.getMoney()) return false;
+      if (getGcode()
+          != other.getGcode()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -325,14 +370,14 @@ public final class LobbyProtoResponse {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasHeader()) {
-        hash = (37 * hash) + HEADER_FIELD_NUMBER;
-        hash = (53 * hash) + getHeader().hashCode();
-      }
+      hash = (37 * hash) + UID_FIELD_NUMBER;
+      hash = (53 * hash) + getUid().hashCode();
       hash = (37 * hash) + PHONE_FIELD_NUMBER;
       hash = (53 * hash) + getPhone().hashCode();
-      hash = (37 * hash) + VIP_FIELD_NUMBER;
-      hash = (53 * hash) + getVip().hashCode();
+      hash = (37 * hash) + MONEY_FIELD_NUMBER;
+      hash = (53 * hash) + getMoney();
+      hash = (37 * hash) + GCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getGcode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -470,15 +515,13 @@ public final class LobbyProtoResponse {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (headerBuilder_ == null) {
-          header_ = null;
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
+        uid_ = "";
+
         phone_ = "";
 
-        vip_ = "";
+        money_ = 0;
+
+        gcode_ = 0;
 
         return this;
       }
@@ -506,13 +549,10 @@ public final class LobbyProtoResponse {
       @java.lang.Override
       public com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse buildPartial() {
         com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse result = new com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse(this);
-        if (headerBuilder_ == null) {
-          result.header_ = header_;
-        } else {
-          result.header_ = headerBuilder_.build();
-        }
+        result.uid_ = uid_;
         result.phone_ = phone_;
-        result.vip_ = vip_;
+        result.money_ = money_;
+        result.gcode_ = gcode_;
         onBuilt();
         return result;
       }
@@ -561,16 +601,19 @@ public final class LobbyProtoResponse {
 
       public Builder mergeFrom(com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse other) {
         if (other == com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.LoginResponse.getDefaultInstance()) return this;
-        if (other.hasHeader()) {
-          mergeHeader(other.getHeader());
+        if (!other.getUid().isEmpty()) {
+          uid_ = other.uid_;
+          onChanged();
         }
         if (!other.getPhone().isEmpty()) {
           phone_ = other.phone_;
           onChanged();
         }
-        if (!other.getVip().isEmpty()) {
-          vip_ = other.vip_;
-          onChanged();
+        if (other.getMoney() != 0) {
+          setMoney(other.getMoney());
+        }
+        if (other.getGcode() != 0) {
+          setGcode(other.getGcode());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -601,125 +644,101 @@ public final class LobbyProtoResponse {
         return this;
       }
 
-      private com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader header_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder> headerBuilder_;
+      private java.lang.Object uid_ = "";
       /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
+       * <pre>
+       *user ID
+       * </pre>
+       *
+       * <code>string uid = 1;</code>
        */
-      public boolean hasHeader() {
-        return headerBuilder_ != null || header_ != null;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader getHeader() {
-        if (headerBuilder_ == null) {
-          return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.getDefaultInstance() : header_;
+      public java.lang.String getUid() {
+        java.lang.Object ref = uid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uid_ = s;
+          return s;
         } else {
-          return headerBuilder_.getMessage();
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
+       * <pre>
+       *user ID
+       * </pre>
+       *
+       * <code>string uid = 1;</code>
        */
-      public Builder setHeader(com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader value) {
-        if (headerBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          header_ = value;
-          onChanged();
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uid_ = b;
+          return b;
         } else {
-          headerBuilder_.setMessage(value);
+          return (com.google.protobuf.ByteString) ref;
         }
-
-        return this;
       }
       /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
+       * <pre>
+       *user ID
+       * </pre>
+       *
+       * <code>string uid = 1;</code>
        */
-      public Builder setHeader(
-          com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder builderForValue) {
-        if (headerBuilder_ == null) {
-          header_ = builderForValue.build();
-          onChanged();
-        } else {
-          headerBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public Builder mergeHeader(com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader value) {
-        if (headerBuilder_ == null) {
-          if (header_ != null) {
-            header_ =
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.newBuilder(header_).mergeFrom(value).buildPartial();
-          } else {
-            header_ = value;
-          }
-          onChanged();
-        } else {
-          headerBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public Builder clearHeader() {
-        if (headerBuilder_ == null) {
-          header_ = null;
-          onChanged();
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder getHeaderBuilder() {
-        
+      public Builder setUid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uid_ = value;
         onChanged();
-        return getHeaderFieldBuilder().getBuilder();
+        return this;
       }
       /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
+       * <pre>
+       *user ID
+       * </pre>
+       *
+       * <code>string uid = 1;</code>
        */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder getHeaderOrBuilder() {
-        if (headerBuilder_ != null) {
-          return headerBuilder_.getMessageOrBuilder();
-        } else {
-          return header_ == null ?
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.getDefaultInstance() : header_;
-        }
+      public Builder clearUid() {
+        
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
       }
       /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
+       * <pre>
+       *user ID
+       * </pre>
+       *
+       * <code>string uid = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder> 
-          getHeaderFieldBuilder() {
-        if (headerBuilder_ == null) {
-          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder>(
-                  getHeader(),
-                  getParentForChildren(),
-                  isClean());
-          header_ = null;
-        }
-        return headerBuilder_;
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uid_ = value;
+        onChanged();
+        return this;
       }
 
       private java.lang.Object phone_ = "";
       /**
+       * <pre>
+       * dianh
+       * </pre>
+       *
        * <code>string phone = 2;</code>
        */
       public java.lang.String getPhone() {
@@ -735,6 +754,10 @@ public final class LobbyProtoResponse {
         }
       }
       /**
+       * <pre>
+       * dianh
+       * </pre>
+       *
        * <code>string phone = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -751,6 +774,10 @@ public final class LobbyProtoResponse {
         }
       }
       /**
+       * <pre>
+       * dianh
+       * </pre>
+       *
        * <code>string phone = 2;</code>
        */
       public Builder setPhone(
@@ -764,6 +791,10 @@ public final class LobbyProtoResponse {
         return this;
       }
       /**
+       * <pre>
+       * dianh
+       * </pre>
+       *
        * <code>string phone = 2;</code>
        */
       public Builder clearPhone() {
@@ -773,6 +804,10 @@ public final class LobbyProtoResponse {
         return this;
       }
       /**
+       * <pre>
+       * dianh
+       * </pre>
+       *
        * <code>string phone = 2;</code>
        */
       public Builder setPhoneBytes(
@@ -787,71 +822,78 @@ public final class LobbyProtoResponse {
         return this;
       }
 
-      private java.lang.Object vip_ = "";
+      private int money_ ;
       /**
-       * <code>string vip = 3;</code>
+       * <pre>
+       *user 钱包
+       * </pre>
+       *
+       * <code>int32 money = 3;</code>
        */
-      public java.lang.String getVip() {
-        java.lang.Object ref = vip_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          vip_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getMoney() {
+        return money_;
       }
       /**
-       * <code>string vip = 3;</code>
+       * <pre>
+       *user 钱包
+       * </pre>
+       *
+       * <code>int32 money = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getVipBytes() {
-        java.lang.Object ref = vip_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          vip_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string vip = 3;</code>
-       */
-      public Builder setVip(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        vip_ = value;
+      public Builder setMoney(int value) {
+        
+        money_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string vip = 3;</code>
+       * <pre>
+       *user 钱包
+       * </pre>
+       *
+       * <code>int32 money = 3;</code>
        */
-      public Builder clearVip() {
+      public Builder clearMoney() {
         
-        vip_ = getDefaultInstance().getVip();
+        money_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int gcode_ ;
+      /**
+       * <pre>
+       * 金币
+       * </pre>
+       *
+       * <code>int32 gcode = 4;</code>
+       */
+      public int getGcode() {
+        return gcode_;
+      }
+      /**
+       * <pre>
+       * 金币
+       * </pre>
+       *
+       * <code>int32 gcode = 4;</code>
+       */
+      public Builder setGcode(int value) {
+        
+        gcode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string vip = 3;</code>
+       * <pre>
+       * 金币
+       * </pre>
+       *
+       * <code>int32 gcode = 4;</code>
        */
-      public Builder setVipBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public Builder clearGcode() {
         
-        vip_ = value;
+        gcode_ = 0;
         onChanged();
         return this;
       }
@@ -911,19 +953,6 @@ public final class LobbyProtoResponse {
   public interface EFTResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.lobby.EFTResponse)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    boolean hasHeader();
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader getHeader();
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
      * <pre>
@@ -992,19 +1021,6 @@ public final class LobbyProtoResponse {
             case 0:
               done = true;
               break;
-            case 10: {
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder subBuilder = null;
-              if (header_ != null) {
-                subBuilder = header_.toBuilder();
-              }
-              header_ = input.readMessage(com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(header_);
-                header_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
             case 24: {
 
               goldNum_ = input.readInt32();
@@ -1047,27 +1063,6 @@ public final class LobbyProtoResponse {
               com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse.class, com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse.Builder.class);
     }
 
-    public static final int HEADER_FIELD_NUMBER = 1;
-    private com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader header_;
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    public boolean hasHeader() {
-      return header_ != null;
-    }
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader getHeader() {
-      return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.getDefaultInstance() : header_;
-    }
-    /**
-     * <code>.com.fagp.GameResponseHeader header = 1;</code>
-     */
-    public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder getHeaderOrBuilder() {
-      return getHeader();
-    }
-
     public static final int GOLDNUM_FIELD_NUMBER = 3;
     private int goldNum_;
     /**
@@ -1108,9 +1103,6 @@ public final class LobbyProtoResponse {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (header_ != null) {
-        output.writeMessage(1, getHeader());
-      }
       if (goldNum_ != 0) {
         output.writeInt32(3, goldNum_);
       }
@@ -1126,10 +1118,6 @@ public final class LobbyProtoResponse {
       if (size != -1) return size;
 
       size = 0;
-      if (header_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getHeader());
-      }
       if (goldNum_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, goldNum_);
@@ -1153,11 +1141,6 @@ public final class LobbyProtoResponse {
       }
       com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse other = (com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse) obj;
 
-      if (hasHeader() != other.hasHeader()) return false;
-      if (hasHeader()) {
-        if (!getHeader()
-            .equals(other.getHeader())) return false;
-      }
       if (getGoldNum()
           != other.getGoldNum()) return false;
       if (getTow()
@@ -1173,10 +1156,6 @@ public final class LobbyProtoResponse {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasHeader()) {
-        hash = (37 * hash) + HEADER_FIELD_NUMBER;
-        hash = (53 * hash) + getHeader().hashCode();
-      }
       hash = (37 * hash) + GOLDNUM_FIELD_NUMBER;
       hash = (53 * hash) + getGoldNum();
       hash = (37 * hash) + TOW_FIELD_NUMBER;
@@ -1318,12 +1297,6 @@ public final class LobbyProtoResponse {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (headerBuilder_ == null) {
-          header_ = null;
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
         goldNum_ = 0;
 
         tow_ = 0;
@@ -1354,11 +1327,6 @@ public final class LobbyProtoResponse {
       @java.lang.Override
       public com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse buildPartial() {
         com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse result = new com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse(this);
-        if (headerBuilder_ == null) {
-          result.header_ = header_;
-        } else {
-          result.header_ = headerBuilder_.build();
-        }
         result.goldNum_ = goldNum_;
         result.tow_ = tow_;
         onBuilt();
@@ -1409,9 +1377,6 @@ public final class LobbyProtoResponse {
 
       public Builder mergeFrom(com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse other) {
         if (other == com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse.EFTResponse.getDefaultInstance()) return this;
-        if (other.hasHeader()) {
-          mergeHeader(other.getHeader());
-        }
         if (other.getGoldNum() != 0) {
           setGoldNum(other.getGoldNum());
         }
@@ -1445,123 +1410,6 @@ public final class LobbyProtoResponse {
           }
         }
         return this;
-      }
-
-      private com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader header_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder> headerBuilder_;
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public boolean hasHeader() {
-        return headerBuilder_ != null || header_ != null;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader getHeader() {
-        if (headerBuilder_ == null) {
-          return header_ == null ? com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.getDefaultInstance() : header_;
-        } else {
-          return headerBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public Builder setHeader(com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader value) {
-        if (headerBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          header_ = value;
-          onChanged();
-        } else {
-          headerBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public Builder setHeader(
-          com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder builderForValue) {
-        if (headerBuilder_ == null) {
-          header_ = builderForValue.build();
-          onChanged();
-        } else {
-          headerBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public Builder mergeHeader(com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader value) {
-        if (headerBuilder_ == null) {
-          if (header_ != null) {
-            header_ =
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.newBuilder(header_).mergeFrom(value).buildPartial();
-          } else {
-            header_ = value;
-          }
-          onChanged();
-        } else {
-          headerBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public Builder clearHeader() {
-        if (headerBuilder_ == null) {
-          header_ = null;
-          onChanged();
-        } else {
-          header_ = null;
-          headerBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder getHeaderBuilder() {
-        
-        onChanged();
-        return getHeaderFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      public com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder getHeaderOrBuilder() {
-        if (headerBuilder_ != null) {
-          return headerBuilder_.getMessageOrBuilder();
-        } else {
-          return header_ == null ?
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.getDefaultInstance() : header_;
-        }
-      }
-      /**
-       * <code>.com.fagp.GameResponseHeader header = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder> 
-          getHeaderFieldBuilder() {
-        if (headerBuilder_ == null) {
-          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeader.Builder, com.fagp.basics.core.protobuf.aheader.Header.GameResponseHeaderOrBuilder>(
-                  getHeader(),
-                  getParentForChildren(),
-                  isClean());
-          header_ = null;
-        }
-        return headerBuilder_;
       }
 
       private int goldNum_ ;
@@ -1711,33 +1559,30 @@ public final class LobbyProtoResponse {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023lobbyResponse.proto\022\tcom.lobby\032\014header" +
-      ".proto\"Y\n\rLoginResponse\022,\n\006header\030\001 \001(\0132" +
-      "\034.com.fagp.GameResponseHeader\022\r\n\005phone\030\002" +
-      " \001(\t\022\013\n\003vip\030\003 \001(\t\"Y\n\013EFTResponse\022,\n\006head" +
-      "er\030\001 \001(\0132\034.com.fagp.GameResponseHeader\022\017" +
-      "\n\007goldNum\030\003 \001(\005\022\013\n\003tow\030\004 \001(\005BB\n,com.fagp" +
-      ".basics.core.protobuf.lobby.responseB\022Lo" +
-      "bbyProtoResponseb\006proto3"
+      "\n\023lobbyResponse.proto\022\tcom.lobby\"I\n\rLogi" +
+      "nResponse\022\013\n\003uid\030\001 \001(\t\022\r\n\005phone\030\002 \001(\t\022\r\n" +
+      "\005money\030\003 \001(\005\022\r\n\005gcode\030\004 \001(\005\"+\n\013EFTRespon" +
+      "se\022\017\n\007goldNum\030\003 \001(\005\022\013\n\003tow\030\004 \001(\005BV\n,com." +
+      "fagp.basics.core.protobuf.lobby.response" +
+      "B\022LobbyProtoResponse\252\002\021sk.WellKnownTypes" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.fagp.basics.core.protobuf.aheader.Header.getDescriptor(),
         });
     internal_static_com_lobby_LoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_lobby_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_lobby_LoginResponse_descriptor,
-        new java.lang.String[] { "Header", "Phone", "Vip", });
+        new java.lang.String[] { "Uid", "Phone", "Money", "Gcode", });
     internal_static_com_lobby_EFTResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_lobby_EFTResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_lobby_EFTResponse_descriptor,
-        new java.lang.String[] { "Header", "GoldNum", "Tow", });
-    com.fagp.basics.core.protobuf.aheader.Header.getDescriptor();
+        new java.lang.String[] { "GoldNum", "Tow", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

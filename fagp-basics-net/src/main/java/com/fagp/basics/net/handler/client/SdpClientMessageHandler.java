@@ -44,8 +44,8 @@ public class SdpClientMessageHandler extends SimpleChannelInboundHandler<ApiProt
       return;
     }
     try {
-      SdpHandlerMappingInfo handlerMappingInfo = InitializeMappingMap.getSdpMapping(msg.getSdpHandlerType().code());
-      handlerMappingInfo.getMethod().invoke(handlerMappingInfo.getHandler(), msg);
+//      SdpHandlerMappingInfo handlerMappingInfo = InitializeMappingMap.getSdpMapping(msg.getSdpHandlerType().code());
+//      handlerMappingInfo.getMethod().invoke(handlerMappingInfo.getHandler(), msg);
     } catch (Exception e) {
       logger.error("************请求获取 mappingInfo 异常", e.getMessage(), " ,  CMD：", msg.getCmd());
       e.printStackTrace();

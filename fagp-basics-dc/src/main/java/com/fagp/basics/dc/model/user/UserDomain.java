@@ -1,5 +1,6 @@
-package com.fagp.basics.sdp.model;
+package com.fagp.basics.dc.model.user;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -7,6 +8,7 @@ import lombok.ToString;
 @Data
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserDomain {
     private Integer userId;
 
