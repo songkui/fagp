@@ -1,13 +1,3 @@
-/*
- * Copyright (C), 2015-2018
- * FileName: SessionManager
- * Author:   zhao
- * Date:     2018/6/22 16:40
- * Description: Session管理类
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.fagp.basics.net.session;
 
 import com.google.protobuf.GeneratedMessageV3;
@@ -41,7 +31,7 @@ public class SessionManager {
   /**
    * 已经登录的session管理
    */
-  private final ConcurrentMap<Integer, Session> uidSessionMap = new ConcurrentHashMap<>(16);
+  private final ConcurrentMap<Long, Session> uidSessionMap = new ConcurrentHashMap<>(16);
 
   public Session getSession(Integer uid) {
     return uidSessionMap.get(uid);
@@ -69,11 +59,11 @@ public class SessionManager {
    * 注册sesson
    *
    * @param session session
-   * @param user    用户
+   * @param userId    用户
    */
-  public void register(Session session, IUser user) {
-    session.registerUser(user);
-    uidSessionMap.put(session.getUser().getId(), session);
+  public void register(Session session, Long userId) {
+    session.registerUser(userId);
+    uidSessionMap.put(session.getUserId(), session);
   }
 
   /**
@@ -108,10 +98,10 @@ public class SessionManager {
     if (session != null) {
       AttributeUtil.set(session.getChannel(), SessionAttributeKey.SESSION, null);
 
-      IUser user = session.getUser();
-      if (user != null) {
-        boolean remove = uidSessionMap.remove(user.getId(), session);
-        logger.info("Session unregister, userId={}, remove={}", user.getId(), remove);
+      Long userId = session.getUserId();
+      if (userId != null) {
+        boolean remove = uidSessionMap.remove(userId, session);
+        logger.info("Session unregister, userId={}, remove={}", userId, remove);
       }
     }
   }

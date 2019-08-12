@@ -24,11 +24,23 @@ import org.springframework.stereotype.Component;
  * @author King.SOong
  * @date 2019/8/12 10:52
  */
-@Component
-@Scope("singleton")
+//@Component
+//@Scope("singleton")
 public class NetworkListener{
 
   private static final Logger logger = LoggerFactory.getLogger(NetworkListener.class);
+  private static  NetworkListener listener = new NetworkListener();
+
+  private NetworkListener(){}
+
+  public static NetworkListener getListener(){
+    if (null == listener){
+      listener = new NetworkListener();
+    }
+    return  listener;
+  }
+
+
 
   public void onConnected(ChannelHandlerContext ctx) {
     logger.info("建立连接");

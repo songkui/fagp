@@ -2,6 +2,7 @@ package com.fagp.basics.core.protobuf;
 
 import com.fagp.basics.core.enm.HandlerType;
 import com.fagp.basics.core.enm.ResponseCode;
+import com.fagp.basics.core.protobuf.aheader.Error;
 import com.google.protobuf.GeneratedMessageV3;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.Data;
@@ -57,6 +58,16 @@ public class ApiProtoBufResponse {
     //TODO 发送消息 太弱 需进步处理 赶时间暂时放以后处理
     public void sendMessage(){
          context.writeAndFlush(this);
+    }
+
+    public void sendErrorMessage(ResponseCode responseCode){
+        Error.ErrorInfo errorInfo = Error.ErrorInfo.newBuilder()
+                .setCmd(this.getCmd())
+                .setStatusCode(responseCode.code())
+                .setStatusMsg(responseCode.desc()).build();
+        this.buildState(ResponseCode.DataNotFound);
+        this.buildData(errorInfo);
+        this.sendMessage();
     }
 
 

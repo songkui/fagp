@@ -1,13 +1,3 @@
-/*
- * Copyright (C), 2015-2018
- * FileName: Session
- * Author:   zhao
- * Date:     2018/6/22 15:44
- * Description: Session会话
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.fagp.basics.net.session;
 
 import io.netty.channel.Channel;
@@ -38,7 +28,7 @@ public class Session {
    * 用户信息可能为空。
    * 只有在register(登录)之后，里面才会赋值
    */
-  private IUser user;
+  private Long userId;
   /**
    * 创建时间
    */
@@ -57,8 +47,8 @@ public class Session {
    *
    * @param user 用户 信息
    */
-  void registerUser(IUser user) {
-    this.user = user;
+  void registerUser(Long user) {
+    this.userId = user;
   }
 
   /**
@@ -78,19 +68,19 @@ public class Session {
 
   }
 
-  IUser getUser() {
-    return user;
+  public Long getUserId() {
+    return userId;
   }
 
-  Channel getChannel() {
+  public Channel getChannel() {
     return channel;
   }
 
-  void put(String key, Object value) {
+  public void put(String key, Object value) {
     hashMap.put(key, value);
   }
 
-  Object getByKey(String key) {
+  public Object getByKey(String key) {
     return hashMap.getOrDefault(key, null);
   }
 

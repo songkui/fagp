@@ -7,12 +7,9 @@ import com.fagp.basics.core.enm.ResponseCode;
 import com.fagp.basics.core.handler.FagpHandler;
 import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
 import com.fagp.basics.core.protobuf.ApiProtoBufResponse;
-import com.fagp.basics.core.protobuf.aheader.Header;
-import com.fagp.basics.core.protobuf.lobby.request.LobbyProtoRequest;
 import com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse;
-import com.fagp.game.fruits.test.TcpTest;
+import com.fagp.basics.net.session.SessionManager;
 import com.google.gson.Gson;
-import com.google.protobuf.GeneratedMessageV3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,14 +37,21 @@ public class LonginHandler implements FagpHandler{
     @GameHandlerMapping(HandlerType.LoginRequest)
     public void doLogin(ApiProtoBufRequest request, ApiProtoBufResponse response) {
 
+        int max=100,min=1;
+        int random = (int) (Math.random()*(max-min)+min);
+       long userID = (11111 + random);
+        SessionManager.getInstance().register(SessionManager.getInstance().getSessionByChannel(response.getContext().channel()), userID);
+
+
+        //成功案例
         LobbyProtoResponse.LoginResponse responseMsg = LobbyProtoResponse.LoginResponse.newBuilder()
-                .setPhone("18615780661").setUid("xxFFFFFFFFFFFFFFFFFFxxx").build();
+                .setPhone("18615780661").setUid("xxxxxxxx").build();
         response.buildState(ResponseCode.Success);
         response.buildData(responseMsg);
-
-//        new TcpTest().doHttp();
         response.sendMessage();
 
+//        //错误信息案例
+//        response.sendErrorMessage(ResponseCode.DataNotFound);
 
     }
 

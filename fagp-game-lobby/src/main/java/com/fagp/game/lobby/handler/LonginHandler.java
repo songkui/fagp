@@ -6,7 +6,6 @@ import com.fagp.basics.core.enm.HandlerType;
 import com.fagp.basics.core.handler.FagpHandler;
 import com.fagp.basics.core.protobuf.ApiProtoBufRequest;
 import com.fagp.basics.core.protobuf.ApiProtoBufResponse;
-import com.fagp.basics.core.protobuf.aheader.Header;
 import com.fagp.basics.core.protobuf.lobby.request.LobbyProtoRequest;
 import com.fagp.basics.core.protobuf.lobby.response.LobbyProtoResponse;
 import com.google.gson.Gson;

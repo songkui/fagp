@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.fagp;
+
+option java_package = "com.fagp.basics.core.protobuf.aheader"; //java  语言包
+option java_outer_classname = "Error";
+
+//错误信息 返回
+message ErrorInfo {
+   int32 cmd = 1; //命令号
+   int32 status_code = 2; //200 表示成功，其他数值表示有错误
+   string status_msg = 3; // 状态值 成功则是 success 错误则反回错误对应说明
+}
+
+
+

@@ -1,13 +1,3 @@
-/*
- * Copyright (C), 2015-2018
- * FileName: AttributeUtil
- * Author:   zhao
- * Date:     2018/6/22 16:15
- * Description: Attribute操作的工具类
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.fagp.basics.net.session;
 
 import io.netty.channel.Channel;

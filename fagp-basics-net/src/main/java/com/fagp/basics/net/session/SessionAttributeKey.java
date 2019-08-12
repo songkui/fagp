@@ -1,13 +1,3 @@
-/*
- * Copyright (C), 2015-2018
- * FileName: SessionAttributeKey
- * Author:   zhao
- * Date:     2018/6/22 16:12
- * Description: session相关的AttributeKey
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.fagp.basics.net.session;
 
 import io.netty.util.AttributeKey;

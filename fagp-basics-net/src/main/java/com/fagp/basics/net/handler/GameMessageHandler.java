@@ -19,14 +19,12 @@ import org.springframework.stereotype.Component;
  * @author King.Song
  * @date 2019/8/9 00:05
  */
-@Component
-@Scope("prototype")
+//@Component
+//@Scope("prototype")
 public class GameMessageHandler extends SimpleChannelInboundHandler<ApiProtoBufRequest> {
 
   private Logger logger = LoggerFactory.getLogger(GameMessageHandler.class);
 
-  @Autowired
-  private NetworkListener listener;
 
   @Override
   protected void channelRead0(ChannelHandlerContext ctx, ApiProtoBufRequest msg) {
@@ -47,18 +45,18 @@ public class GameMessageHandler extends SimpleChannelInboundHandler<ApiProtoBufR
   @Override
   public void channelActive(ChannelHandlerContext ctx) {
     System.out.println("=======connect==============");
-//    listener.onConnected(ctx);
+    NetworkListener.getListener().onConnected(ctx);
   }
 
   @Override
   public void channelInactive(ChannelHandlerContext ctx) {
-//    listener.onDisconnected(ctx);
+    NetworkListener.getListener().onDisconnected(ctx);
     System.out.println("=======channelInactive==============");
   }
 
   @Override
   public void exceptionCaught(ChannelHandlerContext ctx, Throwable throwable) {
-//    listener.onExceptionCaught(ctx, throwable);
+    NetworkListener.getListener().onExceptionCaught(ctx, throwable);
     System.out.println("=======exceptionCaught==============");
   }
 }

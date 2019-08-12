@@ -15,7 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-//@SpringBootApplication(exclude={DataSourceAutoConfiguration.class}) //不连接 数据库
 @SpringBootApplication
 @EnableScheduling
 @ComponentScan( {"com.fagp.game.fruits","com.fagp.basics.engine", "com.fagp.basics.net","com.fagp.basics.dc"})

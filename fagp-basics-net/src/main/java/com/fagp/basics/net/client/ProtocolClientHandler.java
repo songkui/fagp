@@ -1,7 +1,7 @@
 package com.fagp.basics.net.client;
 
 import com.fagp.basics.core.enm.HandlerType;
-import com.fagp.basics.core.protobuf.aheader.Header;
+import com.fagp.basics.core.protobuf.aheader.Error;
 import com.fagp.basics.core.protobuf.lobby.request.LobbyProtoRequest;
 import com.fagp.basics.core.util.MessageUtil;
 import com.google.protobuf.GeneratedMessageV3;
@@ -25,6 +25,7 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 			throws Exception {
 		GeneratedMessageV3 response = parserMessage((ByteBuf)msg);
 		System.out.println(">>>>"+response);
+
 	}
 
 	@Override
@@ -61,26 +62,38 @@ public class ProtocolClientHandler extends ChannelInboundHandlerAdapter {
 	
 	private GeneratedMessageV3 parserMessage(ByteBuf byteBuf) throws Exception{
 
-		System.out.println(byteBuf.readShort() );
-		int msgCode = byteBuf.readInt();
-		System.out.println(msgCode );
-		System.out.println(byteBuf.readInt() );
-		System.out.println(byteBuf.readInt() );
+		System.out.println(byteBuf.readShort() ); //
+		int mcd = byteBuf.readInt();
+		System.out.println(mcd );
+
+		int state = byteBuf.readInt();
+		System.out.println("state: "+ state );
+
+		System.out.println("bl: "+ byteBuf.readInt());
 
 
-		HandlerType type = HandlerType.valueOfCode(msgCode);
 
-		Parser parser = parserMap.get(type.code());
-		if(parser == null){
-			parser = MessageUtil.parseMessage(type);
-			parserMap.put(type.code(), parser);
-		}
-
+		HandlerType type = HandlerType.valueOfCode(mcd);
 		byte[] bytes = new byte[byteBuf.readableBytes()];
 		byteBuf.readBytes(bytes);
-		GeneratedMessageV3 responseMessage = (GeneratedMessageV3) parser.parseFrom(bytes);
+		GeneratedMessageV3  generatedMessageV3 = null;
+		Parser parser = null;
+		if (200 != state ){
+			generatedMessageV3 = Error.ErrorInfo.parser().parseFrom(bytes);
+			Error.ErrorInfo errorInfo = (Error.ErrorInfo) generatedMessageV3;
+			System.out.println("Error code:"+errorInfo.getStatusCode() +" msg:"+ errorInfo.getStatusMsg());
+		}else {
+			parser = parserMap.get(type.code());
+			if(parser == null){
+				parser = MessageUtil.parseMessage(type);
+				parserMap.put(type.code(), parser);
+			}
+			generatedMessageV3 = (GeneratedMessageV3) parser.parseFrom(bytes);
+		}
+
+
 		
-		return responseMessage;
+		return generatedMessageV3;
 	}
 	
 
