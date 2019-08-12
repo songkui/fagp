@@ -22,9 +22,8 @@ import java.util.HashMap;
  * 里面的所有信息都需要交由SessionManager操作
  * 外部无法直接访问到这个类的方法
  *
- * @author zhao
- * @date 2018/6/22 15:44
- * @since 1.0.0
+ * @author King.Song
+ * @date 2019/8/11 16:15
  */
 public class Session {
 

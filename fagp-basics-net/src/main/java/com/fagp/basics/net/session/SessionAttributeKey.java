@@ -16,9 +16,8 @@ import io.netty.util.AttributeKey;
  * 〈一句话功能简述〉<br>
  * 〈session相关的AttributeKey〉
  *
- * @author zhao
- * @date 2018/6/22 16:12
- * @since 1.0.0
+ * @author King.Song
+ * @date 2019/8/11 16:15
  */
 public class SessionAttributeKey {
 

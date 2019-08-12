@@ -23,9 +23,8 @@ import java.util.concurrent.ConcurrentMap;
  * 〈一句话功能简述〉<br>
  * 〈Session管理类〉
  *
- * @author zhao
- * @date 2018/6/22 16:40
- * @since 1.0.0
+ * @author King.Song
+ * @date 2019/8/11 16:15
  */
 public class SessionManager {
   private static final Logger logger = LoggerFactory.getLogger(SessionManager.class);

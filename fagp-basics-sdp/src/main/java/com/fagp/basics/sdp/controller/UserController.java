@@ -9,7 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Created by Administrator on 2017/8/16.
+ * @author King.Song
+ * @date 2019/8/11 16:15
  */
 @Controller
 @RequestMapping(value = "/user")

@@ -1,6 +1,7 @@
 package com.fagp.basics.net.servers;
 
 import com.fagp.basics.core.config.NettyProperties;
+import com.fagp.basics.core.constant.ConstantValue;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
@@ -14,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @Description: TODO
+ * @Description: 服务器
  * @Author King.Song
  * @Date 2019/8/9 0009
  **/
@@ -29,10 +30,10 @@ public abstract class ServerFactory {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(new NioEventLoopGroup(),  new NioEventLoopGroup())
                 .channel(NioServerSocketChannel.class)
-                .option(ChannelOption.SO_BACKLOG, 1024)
-                .childOption(ChannelOption.SO_REUSEADDR, true) //重用地址
-                .childOption(ChannelOption.SO_RCVBUF, 65536)
-                .childOption(ChannelOption.SO_SNDBUF, 65536)
+                .option(ChannelOption.SO_BACKLOG, ConstantValue.SO_BACKLOG)
+                .childOption(ChannelOption.SO_REUSEADDR, true)
+                .childOption(ChannelOption.SO_RCVBUF, ConstantValue.SO_RCVBUF)
+                .childOption(ChannelOption.SO_SNDBUF, ConstantValue.SO_SNDBUF)
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .childOption(ChannelOption.ALLOCATOR, new PooledByteBufAllocator(false))  // heap buf 's better

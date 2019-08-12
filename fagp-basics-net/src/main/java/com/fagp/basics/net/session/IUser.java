@@ -13,10 +13,8 @@ package com.fagp.basics.net.session;
 /**
  * 〈一句话功能简述〉<br>
  * 〈用户的抽象类，主要用于session之中〉
- *
- * @author zhao
- * @date 2018/6/22 15:46
- * @since 1.0.0
+ * @author King.Song
+ * @date 2019/8/11 16:15
  */
 public interface IUser {
 

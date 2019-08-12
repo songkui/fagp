@@ -6,8 +6,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- * @author carzy.
- * @date 11:54 2018/12/4
+ * @author King.Song
+ * @date 2019/8/11 16:15
  */
 public class ChannelRepository {
 

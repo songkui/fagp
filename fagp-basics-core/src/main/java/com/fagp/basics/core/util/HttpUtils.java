@@ -12,10 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * H5微信支付配置
- *
- * @author zhengrj
- * @since 2017-07-12
+
+ * @author King.Song
+
  */
 public class HttpUtils {
     /**

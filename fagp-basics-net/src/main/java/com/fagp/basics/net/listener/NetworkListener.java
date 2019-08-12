@@ -21,9 +21,8 @@ import org.springframework.stereotype.Component;
  * 〈一句话功能简述〉<br>
  * 〈网络事件监听器，实现类〉
  *
- * @author zhao
- * @date 2018/6/22 10:52
- * @since 1.0.0
+ * @author King.SOong
+ * @date 2019/8/12 10:52
  */
 @Component
 @Scope("singleton")

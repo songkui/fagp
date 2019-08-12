@@ -14,7 +14,7 @@ import io.netty.handler.logging.LoggingHandler;
 import org.springframework.stereotype.Component;
 
 /**
- * 链接 数据层客户端
+ * 链接 数据层客户端 暂时没有用
  *
  */
 

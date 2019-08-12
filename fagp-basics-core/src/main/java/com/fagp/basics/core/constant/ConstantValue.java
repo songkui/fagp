@@ -20,6 +20,10 @@ public class ConstantValue {
 
   public static final String PROJECT_CHARSET = "UTF-8";
 
+  public static final int SO_BACKLOG = 1024;
+  public static final int SO_RCVBUF = 1024*64;
+  public static final int SO_SNDBUF = 1024*64;
+
   public static final int MESSAGE_MAX_FRAME_LENGTH = 1024 * 1024;
   public static final int MESSAGE_LENGTH_FIELD_OFFSET = 0;
   public static final int MESSAGE_LENGTH_FIELD_LENGTH = 4   ;

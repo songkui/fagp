@@ -12,9 +12,9 @@ spring:
           filters: stat
           driver-class-name: com.mysql.cj.jdbc.Driver
           #基本属性
-          url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+          url: jdbc:mysql://127.0.0.1:3306/slots?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
           username: root
-          password: 258
+          password: root123
           #配置初始化大小/最小/最大
           initial-size: 1
           min-idle: 1

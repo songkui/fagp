@@ -1,7 +1,6 @@
 package com.fagp.basics.core.annotation;
 
 
-import com.fagp.basics.core.enm.HandlerType;
 import com.fagp.basics.core.enm.SdpHandlerType;
 
 import java.lang.annotation.*;
