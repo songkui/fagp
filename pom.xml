@@ -52,7 +52,7 @@
         <protobuf.version>3.8.0</protobuf.version>
         <protobuf.util.version>3.8.0</protobuf.util.version>
         <mysql.version>8.0.12</mysql.version>
-        <postgresql.driver.version>9.4.1211</postgresql.driver.version>
+        <postgresql.driver.version>42.2.25</postgresql.driver.version>
         <cassandra.version>3.5.0</cassandra.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
         <bouncycastle.version>1.60</bouncycastle.version>
